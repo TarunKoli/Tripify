@@ -27,26 +27,56 @@ main .layer{
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.3);
     z-index: 0;
 }
 
 nav{
     flex-basis: 10%;
-    border: 2px solid red;
     z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 9%;
+    position: relative;
 }
+nav .icons i{
+    color: white;
+    margin-right: 2rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+nav .hero_title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+}
+nav .hamburger{
+    cursor: pointer;
+}
+nav .hamburger div{
+    width: 3.5rem;
+    height: 0.3rem;
+    margin: 0.5rem 0;
+    background-color: white;
+}
+
 section{
     flex-basis: 90%;
-    border: 2px solid red;
     display: flex;
+    align-items: flex-start;
     z-index: 10;
     position: relative;
 }
 section .intro{
     flex-basis: 50%;
-    border: 2px solid red;
-    padding: 7% 0 0 7%;
+    padding: 7% 0 0 9%;
+    z-index: 10;
 }
 
 .intro h1{
@@ -56,8 +86,9 @@ section .intro{
 .intro p{
     color: white;
     font-size: 1.6rem;
-    width: 60%;
+    width: 70%;
     font-weight: 400;
+    line-height: 2.2rem;
     margin: 2rem 0;
 }
 .intro button{
@@ -75,7 +106,62 @@ section .intro{
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    border: 2px solid black;
-    height: 40%;
-    width: 80%;
+    height: 48%;
+    width: 82%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 5;
+}
+.image{
+    flex-basis: 73%;
+    display: flex;
+    justify-content: flex-end;
+}
+.image .image_wrapper{
+    flex-basis: 30%;
+}
+.image_wrapper img{
+    height: 100%;
+    width: 100%;
+}
+.carousel{
+    flex-basis: 27%;
+    width: 100%;
+    display: flex;
+}
+.search_box{
+    flex-basis: 70%;
+    display: flex;
+    align-items: flex-end;
+}
+.search_box input{
+    width: 100%;
+    height: 100%;
+    padding: 0 4rem ;
+    border: none;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #181936;
+    border-radius: 0.3rem 0 0 0;
+}
+.search_box input:focus{
+    outline: none;
+}
+.search_box input::placeholder{
+    font-size: 2rem;
+    color: #181936;
+}
+
+.carousel .slider{
+    flex-basis: 30%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #73AFBA;
+    color: white;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
