@@ -177,3 +177,24 @@ section .intro{
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
+.second_main{
+    display: flex;
+    flex-direction: column;
+}
+
+.second_main h1{
+    padding: 10rem 0 0 14rem;
+    font-size: 4rem;
+}
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    margin: 8rem 0 0 14rem;
+}
+
+.cards img{
+    margin-right: 4rem;
+    border-radius: 1rem;
+}
