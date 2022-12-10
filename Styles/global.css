@@ -1,0 +1,17 @@
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+  }
+ 
+
+  @media (max-width: 400px) {
+    html {
+      font-size: 50%;
+    }
+  }
+  
+  @media (max-width: 350px) {
+    html {
+      font-size: 40%;
+    }
+  }
