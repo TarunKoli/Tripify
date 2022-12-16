@@ -282,3 +282,50 @@ section .intro{
     border-bottom: none;
     border-color: grey;
 }
+
+.section3{
+    height: 100vh;
+}
+
+.section3 h1{
+    font-size: 4rem; 
+    padding: 6rem 0 0 60rem;
+}
+
+.section3 p{
+    font-size: 1.2rem;
+    padding: 3rem 0 0 45rem;
+    color: grey;
+}
+
+.cons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.con1{
+    height:35rem;
+    width: 40rem;
+    margin: 11rem 0 0 -14rem;
+    border-radius: 10px;
+    background-color: greenyellow;
+}
+
+.con2{
+    height: 45rem;
+    width: 70rem;
+    margin-top: 6rem;
+    border-radius: 10px;
+    background-color: aqua;
+}
+
+.con3{
+    height: 35rem;
+    width: 40rem;
+    margin: 11rem -14rem 0 0;
+    border-radius: 10px;
+    background-color:yellow;
+}
+
