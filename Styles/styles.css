@@ -329,3 +329,42 @@ section .intro{
     background-color:yellow;
 }
 
+.section4{
+    height: 100vh;
+    border: 2px solid red;
+}
+
+.bigger{
+    height: 85%;
+    width: 85%;
+    margin: 4rem 0 0 11.2rem;
+    background-image: url(../Assets/pexels-pixabay-247431.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 10px;
+    padding: 28rem 0 0 10rem;
+    z-index: 0;
+}
+
+.bigger h1{
+    font-size: 4rem;
+    color: white;
+    margin-bottom: 4rem;
+}
+.bigger p{
+    font-size: 2rem;
+    color:thistle;
+}
+
+.smaller{
+    position: absolute;
+    top: 36rem;
+    right: 10rem;
+    width: 35rem;
+    height: 30rem;
+    background-color: white;
+    border: 3px solid #73AD21;
+    border-radius: 10px;
+}
