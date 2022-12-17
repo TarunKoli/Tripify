@@ -177,3 +177,194 @@ section .intro{
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
+.second_main{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.second_main h1{
+    padding: 10rem 0 0 14rem;
+    font-size: 4rem;
+}
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    margin: 8rem 0 0 14rem;
+}
+
+.cards img{
+    margin-right: 4rem;
+    border-radius: 1rem;
+}
+
+.left_sec2{
+    height: 100vh;
+    width: 70%;
+    padding-left: 14rem;
+    padding-top: 35rem;
+}
+
+.button1{
+    height: 3.5rem;
+    width: 10rem;
+    background-color: orangered;
+    color: white;
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+    border: none;
+    cursor: pointer;
+}
+
+
+.section2{
+    background-image: url(../Assets/pexels-daffa-rayhan-zein-1056117.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.left_sec2 h1{
+    color: white;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+
+.button2{
+    height: 5.5rem;
+    width: 20rem;
+    background-color:darkcyan;
+    color: white;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+    border: none;
+    cursor: pointer;
+}
+
+.right_sec2{
+    height: 100vh;
+    width: 30%;
+    padding-left: 8rem;
+    background-color:rgba(0,0,0,.5);
+}
+
+.right_sec2 h1{
+    font-size: 4rem;
+    color: white;
+    margin: 6rem 0 6rem 0;
+}
+
+.items{
+    display: flex;
+    flex-direction: row;
+}
+
+.desc{
+    margin-left: 5rem;
+}
+
+
+.desc h3{
+    color: white;
+    font-size: 1.5rem;
+}
+
+.desc p{
+    color:grey;
+    font-size: 1.1rem;
+}
+
+.right_sec2 hr{
+    margin: 2rem 0  2rem 0 ;
+    width: 80%;
+    border-bottom: none;
+    border-color: grey;
+}
+
+.section3{
+    height: 100vh;
+}
+
+.section3 h1{
+    font-size: 4rem; 
+    padding: 6rem 0 0 60rem;
+}
+
+.section3 p{
+    font-size: 1.2rem;
+    padding: 3rem 0 0 45rem;
+    color: grey;
+}
+
+.cons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.con1{
+    height:35rem;
+    width: 40rem;
+    margin: 11rem 0 0 -14rem;
+    border-radius: 10px;
+    background-color: greenyellow;
+}
+
+.con2{
+    height: 45rem;
+    width: 70rem;
+    margin-top: 6rem;
+    border-radius: 10px;
+    background-color: aqua;
+}
+
+.con3{
+    height: 35rem;
+    width: 40rem;
+    margin: 11rem -14rem 0 0;
+    border-radius: 10px;
+    background-color:yellow;
+}
+
+.section4{
+    height: 100vh;
+    border: 2px solid red;
+}
+
+.bigger{
+    height: 85%;
+    width: 85%;
+    margin: 4rem 0 0 11.2rem;
+    background-image: url(../Assets/pexels-pixabay-247431.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 10px;
+    padding: 28rem 0 0 10rem;
+    z-index: 0;
+}
+
+.bigger h1{
+    font-size: 4rem;
+    color: white;
+    margin-bottom: 4rem;
+}
+.bigger p{
+    font-size: 2rem;
+    color:thistle;
+}
+
+.smaller{
+    position: absolute;
+    top: 36rem;
+    right: 10rem;
+    width: 35rem;
+    height: 30rem;
+    background-color: white;
+    border: 3px solid #73AD21;
+    border-radius: 10px;
+}
