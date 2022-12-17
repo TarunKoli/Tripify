@@ -67,14 +67,14 @@ nav .hamburger div{
     background-color: white;
 }
 
-section{
+.sec1{
     flex-basis: 90%;
     display: flex;
     align-items: flex-start;
     z-index: 10;
     position: relative;
 }
-section .intro{
+.sec1 .intro{
     flex-basis: 50%;
     padding: 7% 0 0 9%;
     z-index: 10;
@@ -145,7 +145,7 @@ section .intro{
     transform: translateY(-50%);
     right: 3%;
     z-index: 10;
-    color: #181936;
+    color: var(--primary);
 }
 .search_box input{
     width: 100%;
@@ -154,7 +154,7 @@ section .intro{
     border: none;
     font-size: 2rem;
     font-weight: 500;
-    color: #181936;
+    color: var(--primary);
     border-radius: 0.3rem 0 0 0;
 }
 .search_box input:focus{
@@ -162,7 +162,7 @@ section .intro{
 }
 .search_box input::placeholder{
     font-size: 2rem;
-    color: #181936;
+    color: var(--primary);
 }
 
 .carousel .slider{
@@ -176,4 +176,159 @@ section .intro{
     font-size: 1.6rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.sec2{
+    height: 100vh;
+    padding: 5% 9% 0 9%;
+}
+.sec2 h1{
+    font-size: 4.6rem;
+    color: var(--primary);
+    text-transform: capitalize;
+}
+.sec2 .cards{
+    width: 100%;
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cards .card{
+    height: 45rem;
+    width: 23.5%;
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.card aside{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 10%;
+    background-color: rgba(115, 175, 186, 0.8);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    opacity: 0;
+    transition: 0.3s;
+}
+.card aside p{
+    color: white;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 2.8rem;
+}
+.card:hover aside{
+    opacity: 1;
+}
+.card img{
+    height: 100%;
+    width: 100%;
+}
+
+.sec3{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background: url(../Assets/pexels-sagui-andrea-618833.jpg);
+}
+
+.sec3_box1{
+    flex-basis: 65%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    background: rgba(0,0,0,0.2);
+}
+.sec3_box1_wrapper{
+    padding: 0 0 12% 12%;
+    width: 75%;
+}
+.sec3_box1_wrapper .tag{
+    width: 12rem;
+    height: 4.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-white);
+    background: var(--tertiary);
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    border-radius: 2.5rem;
+}
+.sec3_box1_wrapper h2{
+    color: var(--text-white);
+    font-size: 5rem;
+    margin: 2.5rem 0;
+    text-transform: capitalize;
+}
+.sec3_box1_wrapper p{
+    color: var(--text-white);
+    font-size: 1.4rem;
+}
+.sec3_box1_wrapper button{
+    background: var(--secondary);
+    color: var(--text-white);
+    border:none;
+    height: 6rem;
+    width: 20rem;
+    text-transform: uppercase;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    font-weight: 600;
+    margin-top: 3.5rem;
+}
+.sec3_box2{
+    flex-basis: 35%;
+    padding: 5% 6% 0 6%;
+    background: rgba(22,35,46,0.9);
+}
+.sec3_box2 h1{
+    color: var(--text-white);
+    font-size: 5rem;
+    margin-bottom: 12%;
+}
+.sec3_box2 .person{
+    display: flex;
+    color: var(--text-white);
+    padding: 7% 0;
+    border-bottom: 1px solid rgba(91, 88, 88,0.7);
+}
+.person:last-child{
+    border-bottom: none;
+}
+.sec3_box2 .person .pImg{
+    flex-basis: 20%;
+}
+.pImg img{
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+}
+.sec3_box2 .person .cmnt{
+    flex-basis: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2%;
+}
+.cmnt .ctn{
+    width: 70%;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+}
+
+.ctn+.date{
+    color: rgb(147, 142, 142);
+    font-weight: 600;
 }

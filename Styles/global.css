@@ -1,3 +1,11 @@
+
+:root{
+  --primary: #16232e;
+  --secondary: #73AFBA;
+  --tertiary: #E8594E;
+  --text-white: #ffffff;
+}
+
 html {
     scroll-behavior: smooth;
     font-size: 62.5%;
