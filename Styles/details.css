@@ -1,0 +1,542 @@
+body{
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+main{
+    height: auto;
+    padding: 3rem 0;
+}
+main{
+    position: relative;
+}
+main .layer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 0;
+}
+
+nav{
+    flex-basis: 10%;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 9%;
+    position: relative;
+    color: var(--primary);
+}
+nav .icons i{
+    margin-right: 2rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+nav .hero_title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+}
+nav .ham_wrapper{
+    position: relative;
+}
+nav .hamburger{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    cursor: pointer;
+    z-index: 50;
+}
+nav .hamburger div{
+    width: 3.5rem;
+    height: 0.25rem;
+    margin: 0.5rem 0;
+    z-index: 100;
+    background-color: var(--primary);
+    transition: 0.3s;
+}
+.hamburger.active div:first-child{
+    transform: rotate(135deg);   
+    background-color: white;
+}
+.hamburger.active div:last-child{
+    transform: rotate(-135deg);   
+    background-color: white;
+}
+.ham_wrapper .ham_layer{
+    z-index: 40;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    height: 0;
+    width: 0;
+    background: var(--tertiary);
+    transition: 0.6s ease-in-out;
+    cursor: default;
+}
+.ham_layer.active{
+    height: 50px;
+    width: 50px;
+    transform: scale(50,50);   
+    transition: 0.6s ease-in-out;
+}
+.ham_layer::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    height: 90%;
+    width: 90%;
+    background: var(--secondary);
+}
+
+nav .links{
+    display: flex;
+    position: absolute;
+    right: -50%;
+    top: 100%;
+    flex-direction: column;
+    z-index: 100;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+nav .links.active{
+    right: 30%;
+    opacity: 1;
+    transition: 0.3s ease-in-out;
+}
+nav .links a{
+    text-transform: uppercase;
+    font-size: 7rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    margin: 3rem 0 ;
+}
+
+.details_sec1 .intro{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.details_sec1 .intro h1{
+    font-size: 8rem;
+    color: var(--primary);
+}
+.details_sec1 .intro p{
+    margin-top: 1.5rem;
+    width: 40%;
+    font-size: 1.4rem;
+    color: rgb(112, 124, 144);
+    font-weight: 500;
+    line-height: 2.3rem;
+    text-align: center;
+}
+.details_sec1 .video{
+    margin-top: 2rem;
+    height: 100vh;
+    width: 100%;
+    padding: 5% 8%;
+    position: relative;
+}
+.details_sec1 .video .vid_btn{
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    background: var(--tertiary);
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+.details_sec1 .video h2{
+    color: white;
+    position: absolute;
+    bottom: 15%;
+    left: 12%;
+    font-size: 2.5rem;
+}
+.details_sec1 .video img{
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.details_sec2{
+    /* border: 2px solid red; */
+    margin-top: 3rem;
+}
+.details_sec2 .row{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 1% 8%;
+}
+.row .row_img{
+    flex-basis: 30%;
+    position: relative;
+}
+.row_img .weather{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 85%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.weather p{
+    text-transform: uppercase;
+}
+.weather h2{
+    font-size: 2.5rem;
+}
+.weather h1{
+    margin-top:3rem;
+    font-size: 8rem;
+    font-weight: 200;
+}
+.row .row_img img{
+    height: 300px;
+    width: 85%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+.row .row_ctn{
+    flex-basis: 70%;
+    padding-left: 5%;
+}
+.row_ctn h2{
+    font-size: 4rem;
+    color: var(--primary);
+}
+.row_ctn .info{
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    color: rgb(112, 124, 144);
+    font-weight: 500;
+    line-height: 2.2rem;
+}
+
+.details_sec3{
+    height: 100%;
+    width: 100%;
+}
+.details_sec3 .heading{
+    margin-top: 7%;
+    text-align: center;
+}
+.details_sec3 .heading h1{
+    font-size: 5.5rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+.details_sec3 .heading p{
+    font-size: 1.4rem;
+    color: rgb(112, 124, 144);
+    font-weight: 500;
+    line-height: 2.3rem;
+}
+.details_sec3 .video_cards{
+    display: flex;
+    height: 60rem;
+    position: relative;
+    overflow: hidden;
+}
+.video_cards .v_card{
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+.video_cards .v_card img{
+    height: 100%;
+    width: 100%;
+}
+.video_cards .v_card:nth-child(2){
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    height: 80%;
+    width: 55%;
+}
+.video_cards .v_card:first-child,
+.video_cards .v_card:last-child{
+    position: absolute;
+    width: 30%;
+    height: 65%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.video_cards .v_card:first-child{
+    left: -10%;
+}
+.video_cards .v_card:last-child{
+    right: -10%;
+}
+
+.details_sec4{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.details_sec4 aside{
+    width: 75%;
+    margin-top: 3%;
+}
+.details_sec4 aside h1{
+    color: var(--primary);
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+}
+.details_sec4 aside p{
+    color: rgb(112, 124, 144);
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 2rem;
+}
+
+.sec5{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+}
+.left_box,.right_box{
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+}
+.left_box_wrap{
+    width: 55%;
+    margin-left: 20%;
+}
+.left_box_wrap h1{
+    color: var(--primary);
+    font-size: 5.5rem;
+}
+.left_box_wrap p{
+    color: rgb(112, 124, 144);
+    font-weight: 500;
+    line-height: 2.2rem;
+    font-size: 1.4rem;
+    margin: 3rem 0;
+}
+.left_box_wrap button{
+    color: var(--text-white);
+    background: var(--secondary);
+    border: none;
+    height: 6rem;
+    width: 20rem;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.right_box{
+    justify-content: center;
+}
+
+.sec5_grid{
+    height: 50%;
+    width: 50%;
+    position: relative;
+}
+.sec5_grid .img{
+    position: absolute;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+.sec5_grid .img img{
+    height: 100%;
+    width: 100%;
+}
+.sec5_grid .img:first-child{
+    top: -10%;
+    left: -20%;
+    height: 65%;
+    width: 65%;
+}
+.sec5_grid .img:nth-child(2){
+ height: 75%;
+ width: 75%;
+ right: -25%;
+ top: -20%;   
+}
+.sec5_grid .img:nth-child(3){
+    bottom: -6%;
+    left: 0%;
+    height: 45%;
+    width: 45%;
+}
+.sec5_grid .img:last-child{
+    bottom: -16%;
+    right: -5%;
+    height: 55%;
+    width: 55%;   
+}
+
+.sec6{
+    height: 90vh;
+    padding: 0 9%;
+}
+.sec6 h1{
+    font-size: 4.6rem;
+    color: var(--primary);
+    text-transform: capitalize;
+}
+.sec6 .cards{
+    width: 100%;
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cards .card{
+    height: 45rem;
+    width: 23.5%;
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.card aside{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 10%;
+    background-color: rgba(115, 175, 186, 0.8);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    opacity: 0;
+    transition: 0.3s;
+}
+.card aside p{
+    color: white;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 2.8rem;
+}
+.card:hover aside{
+    opacity: 1;
+}
+.card img{
+    height: 100%;
+    width: 100%;
+}
+
+
+footer .upper{
+    display: flex;
+    padding: 5% 7%;
+    border-top: 0.1rem solid rgb(112, 124, 144);
+    border-bottom: 0.1rem solid rgb(112, 124, 144);
+}
+.upper .f_left{
+    flex-basis: 70%;
+    display: flex;
+}
+.f_left .box1{
+    flex-basis: 33%;
+}
+.box1 h4,.f_right h4{
+    color: var(--primary);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+    margin-bottom: 4rem;
+    position: relative;
+}
+.box1 h4::before,
+.f_right h4::before{
+    content: '';
+    position: absolute;
+    height: 0.4rem;
+    width: 15%;
+    border-radius: 0.5rem;
+    bottom: -100%;
+    left: 0;
+    background-color: var(--secondary);
+}
+.f_left ul li{
+    color: rgb(112, 124, 144);
+    list-style: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 1rem 0;
+    cursor: pointer;
+}
+.upper .f_right{
+    flex-basis: 30%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 3%;
+}
+.f_right input{
+    height: 5.5rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid rgb(112, 124, 144);
+    margin-bottom: 1rem;
+    padding: 0 2rem;
+    font-weight: 500;
+    color: rgb(112, 124, 144);
+}
+.f_right input:focus{
+    outline: none;
+}
+.f_right input::placeholder{
+    color: rgb(112, 124, 144);
+    font-weight: 500;
+}
+.f_right button{
+    border: none;
+    border-radius: 0.5rem;
+    background: var(--secondary);
+    height: 5.5rem;   
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+footer .down{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgb(112, 124, 144);
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 1.5% 7%;
+}
+footer .terms{
+    display: flex;
+}
+footer .terms p{
+    margin: 0 2.5rem;
+}

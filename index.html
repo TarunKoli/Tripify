@@ -6,24 +6,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tripify</title>
   <link rel="stylesheet" href="./Styles/global.css">
-  <link rel="stylesheet" href="./Styles/styles.css">
+  <link rel="stylesheet" href="./Styles/home.css">
   <script src="https://kit.fontawesome.com/e7a0c04ff2.js" crossorigin="anonymous"></script>
 </head>
 <body>
   
-  <main id="sec1">
+  <main id="sec1" page="home">
     <div class="layer"></div>
     <nav>
       <div class="icons">
-        <i class="fa fa-brands fa-facebook-f"></i>
-        <i class="fa fa-brands fa-twitter"></i>
+          <i class="fa fa-brands fa-facebook-f"></i>
+          <i class="fa fa-brands fa-twitter"></i>
       </div>
       <h2 class="hero_title">TRIPIFY</h2>
-      <div class="hamburger">
-        <div></div>
-        <div></div>
+      <div class="ham_wrapper">
+          <div class="hamburger">
+              <div></div>
+              <div></div>
+          </div>
+          <aside class="ham_layer"></aside>
       </div>
-    </nav>
+      <div class="links">
+      <a href="./index.html">Home</a>
+      <a href="./packages.html">Services</a>
+      <a href="#">Contact</a>
+      <a href="#">Login</a>
+    </div>
+  </nav>
     <section class="sec1">
       <div class="intro">
         <h1>Mother Earth <br />Hosts Our<br />Travels</h1>
@@ -63,19 +72,19 @@
       <aside>
         <p>Vacation Home<br />Rental Success</p>
       </aside>
-      <img src="./Assets/pexels-sagui-andrea-618833.jpg" alt="img1">
+      <img src="./Assets/pexels-creative-vix-9754.jpg" alt="img1">
     </div>
     <div class="card">
       <aside>
         <p>Vacation Home<br />Rental Success</p>
       </aside>
-      <img src="./Assets/pexels-sagui-andrea-618833.jpg" alt="img1">
+      <img src="./Assets/pexels-eberhard-grossgasteiger-640781.jpg" alt="img1">
     </div>
     <div class="card">
       <aside>
         <p>Vacation Home<br />Rental Success</p>
       </aside>
-      <img src="./Assets/pexels-sagui-andrea-618833.jpg" alt="img1">
+      <img src="./Assets/pexels-matheus-guimarães-611328 (1).jpg" alt="img1">
     </div>
     </div>
   </section>
@@ -107,7 +116,7 @@
         <div class="person">
           <div class="pImg">
             <div class="pImg_wrapper">
-              <img src="./Assets/pexels-sagui-andrea-618833.jpg" alt="profile_img">
+              <img src="./Assets/pexels-creative-vix-9754.jpg" alt="profile_img">
             </div>
           </div>
           <div class="cmnt">
@@ -118,7 +127,7 @@
         <div class="person">
           <div class="pImg">
             <div class="pImg_wrapper">
-              <img src="./Assets/pexels-sagui-andrea-618833.jpg" alt="profile_img">
+              <img src="./Assets/pexels-eberhard-grossgasteiger-640781.jpg" alt="profile_img">
             </div>
           </div>
           <div class="cmnt">
@@ -129,7 +138,7 @@
         <div class="person">
           <div class="pImg">
             <div class="pImg_wrapper">
-              <img src="./Assets/pexels-sagui-andrea-618833.jpg" alt="profile_img">
+              <img src="./Assets/pexels-matheus-guimarães-611328 (1).jpg" alt="profile_img">
             </div>
           </div>
           <div class="cmnt">
@@ -149,9 +158,15 @@
       ranks as three of the most magnificient & inspiring</p>
     </div>
     <div class="video_cards">
-      <div class="v_card"></div>
-      <div class="v_card"></div>
-      <div class="v_card"></div>
+      <div class="v_card">
+        <img src="./Assets/pexels-michał-osiński-3454270.jpg" alt="img">
+      </div>
+      <div class="v_card">
+        <img src="./Assets/pexels-sagui-andrea-618833.jpg" alt="image">
+      </div>
+      <div class="v_card">
+        <img src="./Assets/pexels-creative-vix-9754.jpg" alt="image">
+      </div>
     </div>
   </section>
 
@@ -218,10 +233,18 @@
     </div>
     <div class="right_box">
       <div class="sec7_grid">
-        <div class="img"></div>
-        <div class="img"></div>
-        <div class="img"></div>
-        <div class="img"></div>
+        <div class="img">
+          <img src="./Assets/pexels-creative-vix-9754.jpg" alt="image">
+        </div>
+        <div class="img">
+          <img src="./Assets/pexels-eberhard-grossgasteiger-640781.jpg" alt="image">
+        </div>
+        <div class="img">
+          <img src="./Assets/pexels-matheus-guimarães-611328 (1).jpg" alt="image">
+        </div>
+        <div class="img">
+          <img src="./Assets/pexels-michał-osiński-3454270.jpg" alt="image">
+        </div>
       </div>
     </div>
   </section>
@@ -277,5 +300,26 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    
+    hamburger.addEventListener('click', () => {
+        
+        const ham_layer = document.querySelector('.ham_layer');
+        const links = document.querySelector('.links');
+        
+        ham_layer.classList.toggle('active');
+        hamburger.classList.toggle('active');
+
+        if(links.classList.contains('active')){
+            links.classList.remove('active');
+        } else{
+            setTimeout(()=>{
+                links.classList.add('active');
+            },300)
+        }
+    })
+</script>
 </body>
 </html>
