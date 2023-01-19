@@ -154,18 +154,28 @@ nav .links a{
     padding: 5% 8%;
     position: relative;
 }
-.details_sec1 .video .vid_btn{
+.details_sec1 .video .vid_btn,
+.video_cards .v_card .vid_btn{
     position: absolute;
-    top: 15%;
-    left: 10%;
-    height: 10rem;
-    width: 10rem;
     border-radius: 50%;
     background: var(--tertiary);
     border: none;
     color: white;
-    font-size: 2.5rem;
     cursor: pointer;
+}
+.details_sec1 .video .vid_btn{
+    height: 10rem;
+    width: 10rem;
+    top: 15%;
+    left: 10%;
+    font-size: 2.5rem;
+}
+.video_cards .v_card .vid_btn{
+    height: 8rem;
+    width: 8rem;
+    top: 8%;
+    left: 5%;
+    font-size: 2rem;
 }
 .details_sec1 .video h2{
     color: white;

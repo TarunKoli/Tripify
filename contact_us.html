@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tripify || Contact Us</title>
+    <link rel="stylesheet" href="./Styles/global.css">
+    <link rel="stylesheet" href="./Styles/contact_us.css">
+    <script src="https://kit.fontawesome.com/e7a0c04ff2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <main page="packages">
+        <div class="layer"></div>
+        <nav>
+            <div class="icons">
+                <i class="fa fa-brands fa-facebook-f"></i>
+                <i class="fa fa-brands fa-twitter"></i>
+            </div>
+            <h2 class="hero_title">TRIPIFY</h2>
+            <div class="ham_wrapper">
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                </div>
+                <aside class="ham_layer"></aside>
+            </div>
+            <div class="links">
+            <a href="./index.html">Home</a>
+            <a href="./packages.html">Services</a>
+            <a href="#">Contact</a>
+            <a href="#">Login</a>
+          </div>
+        </nav>
+        <div class="contact_cover">
+           <div class="contact_left">
+                <h1>Contact Us</h1>
+                <p>The state of Utah in united states is home to lots of beautiful National parks &<br />Bryce Canyon National Park
+                    ranks as three of the most magnificient & inspiring</p>
+                <div class="mob">
+                    <i class="fas fa-solid fa-phone-volume"></i>
+                    <h5>+44 1234 567 980</h5>
+                </div>
+                <div class="email">
+                    <i class="fas fa-regular fa-envelope"></i>
+                    <h5>Admin@tripify.com</h5>
+                </div>
+            </div>
+           <div class="contact_right">
+            <div class="inputs">
+                <div class="input_wrap">
+                  <label for="Name">Name</label>
+                  <input type="text" name="Name" />
+                </div>
+                <div class="input_wrap">
+                  <label for="Email">Email</label>
+                  <input type="email" name="Email" />
+                </div>
+                <div class="input_wrap">
+                  <label for="message">Message</label>
+                  <input type="text" name="message"/>
+                </div>
+              </div>
+              <button>Contact Us</button>
+           </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="upper">
+            <div class="f_left">
+                <div class="box1">
+                    <h4>Company</h4>
+                    <ul>
+                        <li>About</li>
+                        <li>Press</li>
+                        <li>blog</li>
+                        <li>Careers</li>
+                        <li>Security</li>
+                        <li>Driver Center</li>
+                    </ul>
+                </div>
+                <div class="box1">
+                    <h4>Information</h4>
+                    <ul>
+                        <li>About</li>
+                        <li>Press</li>
+                        <li>blog</li>
+                        <li>Careers</li>
+                        <li>Security</li>
+                        <li>Driver Center</li>
+                    </ul>
+                </div>
+                <div class="box1">
+                    <h4>Information</h4>
+                    <ul>
+                        <li>About</li>
+                        <li>Press</li>
+                        <li>blog</li>
+                        <li>Careers</li>
+                        <li>Security</li>
+                        <li>Driver Center</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="f_right">
+                <h4>Subscribe Now</h4>
+                <input type="email" name="email" placeholder="Your email" />
+                <button>Subscribe Now</button>
+            </div>
+        </div>
+        <div class="down">
+            <div class="copyright">@2023 Impression! Designed by Tarun Koli for mass impressions. All right reserved
+            </div>
+            <div class="terms">
+                <p>Terms of Service</p>
+                <p>Privacy Policy</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+
+        hamburger.addEventListener('click', () => {
+
+            const ham_layer = document.querySelector('.ham_layer');
+            const links = document.querySelector('.links');
+
+            ham_layer.classList.toggle('active');
+            hamburger.classList.toggle('active');
+
+            if (links.classList.contains('active')) {
+                links.classList.remove('active');
+            } else {
+                setTimeout(() => {
+                    links.classList.add('active');
+                }, 300)
+            }
+        })
+
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach((card, i) => {
+            card.addEventListener("click", () => {
+                const a = document.createElement('a');
+                a.href = "./details_page.html";
+                a.click();
+            })
+        })
+
+    </script>
+</body>
+
+</html>
