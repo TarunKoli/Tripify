@@ -44,7 +44,7 @@
 
     <section class="pkg_list">
         <div class="pkg_list_wrapper">
-            <div class="card">
+            <!-- <div class="card">
                 <div class="card_img">
                     <img src="./Assets/pexels-creative-vix-9754.jpg" alt="card_img" />
                 </div>
@@ -55,67 +55,7 @@
                         National Park
                         ranks as three of the most magnificient & inspiring</p>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card_img">
-                    <img src="./Assets/pexels-eberhard-grossgasteiger-640781.jpg" alt="card_img" />
-                </div>
-                <div class="card_ctn">
-                    <span>DESTINATIONS</span>
-                    <h2>Traveling To Barcelona</h2>
-                    <p>The state of Utah in united states is home to lots of beautiful National parks & Bryce Canyon
-                        National Park
-                        ranks as three of the most magnificient & inspiring</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card_img">
-                    <img src="./Assets/pexels-matheus-guimarães-611328 (1).jpg" alt="card_img" />
-                </div>
-                <div class="card_ctn">
-                    <span>DESTINATIONS</span>
-                    <h2>Traveling To Barcelona</h2>
-                    <p>The state of Utah in united states is home to lots of beautiful National parks & Bryce Canyon
-                        National Park
-                        ranks as three of the most magnificient & inspiring</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card_img">
-                    <img src="./Assets/pexels-michał-osiński-3454270.jpg" alt="card_img" />
-                </div>
-                <div class="card_ctn">
-                    <span>DESTINATIONS</span>
-                    <h2>Traveling To Barcelona</h2>
-                    <p>The state of Utah in united states is home to lots of beautiful National parks & Bryce Canyon
-                        National Park
-                        ranks as three of the most magnificient & inspiring</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card_img">
-                    <img src="./Assets/pexels-sagui-andrea-618833.jpg" alt="card_img" />
-                </div>
-                <div class="card_ctn">
-                    <span>DESTINATIONS</span>
-                    <h2>Traveling To Barcelona</h2>
-                    <p>The state of Utah in united states is home to lots of beautiful National parks & Bryce Canyon
-                        National Park
-                        ranks as three of the most magnificient & inspiring</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card_img">
-                    <img src="./Assets/pexels-creative-vix-9754.jpg" alt="card_img" />
-                </div>
-                <div class="card_ctn">
-                    <span>DESTINATIONS</span>
-                    <h2>Traveling To Barcelona</h2>
-                    <p>The state of Utah in united states is home to lots of beautiful National parks & Bryce Canyon
-                        National Park
-                        ranks as three of the most magnificient & inspiring</p>
-                </div>
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -172,7 +112,10 @@
         </div>
     </footer>
 
+    <script src="./script.js"></script>
+
     <script>
+        render_packages();
         const hamburger = document.querySelector('.hamburger');
         
         hamburger.addEventListener('click', () => {
@@ -190,16 +133,6 @@
                     links.classList.add('active');
                 },300)
             }
-        })
-
-        const cards = document.querySelectorAll('.card');
-
-        cards.forEach((card,i)=>{
-            card.addEventListener("click",()=>{
-                const a = document.createElement('a');
-                a.href="./details_page.html";
-                a.click();
-            })
         })
 
     </script>
