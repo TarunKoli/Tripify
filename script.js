@@ -25,7 +25,7 @@ const packages = [
     },
     {
         pkg_id: "5",
-        img_url: "./Assets/leh_ladak/img (2).jpg",
+        img_url: "./Assets/leh_ladak/img (6).jpg",
         title: "Travelling to Leh Ladak",
         desc: "Leh is the joint capital and largest city of Ladakh, a union territory of India. Leh, located in the Leh district, was also the historical capital of the Kingdom of Ladakh",
     },
@@ -45,13 +45,13 @@ const packages = [
         pkg_id: "8",
         img_url: "./Assets/Sydney/Sydney (1).jpg",
         title: "Traveling to Sydney",
-        desc: "Sydney is home to must-visit icons like the Sydney Harbour Bridge and Opera House, but this Harbour City is constantly evolving. New rooftop bars, theatre shows and designer shops pop up at every turn, and the urban excitement is perfectly balanced by afternoons spent lying on the sand.",
+        desc: "Sydney is home to must-visit icons like the Sydney Harbour Bridge and Opera House, New rooftop bars, theatre shows and the urban excitement is perfectly balanced by afternoons spent lying on the sand.",
     },
     {
         pkg_id: "9",
         img_url: "./Assets/Maldives/Maldives (1).jpg",
         title: "Traveling to Maldives",
-        desc: "The beauty of the Maldives is not only above the water. The Maldives is home to about five percent of the planet’s reefs that comes with an explosion of color contributed by soft and hard corals that form them. The reefs are home to a thousand species of fish. Lured by the rich nutrients that flow in with the currents, large pelagic fishes such as manta rays and whale sharks also make the Maldives their home.",
+        desc: "The beauty of the Maldives is not only above the water. The Maldives is home to about five percent of the planet’s reefs that comes with an explosion of color contributed by soft and hard corals that form them. ",
     }
 ]
 
@@ -853,4 +853,10 @@ function render_packages() {
 
         pkg_list.appendChild(card);
     })
+}
+
+function redirect(path){
+    const a = document.createElement('a');
+    a.href = path;
+    a.click();
 }
