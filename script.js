@@ -17,6 +17,18 @@ const packages = [
         title: "Cultural Sikkim",
         desc: "Sikkim is a state in northeast India, bordered by Bhutan, Tibet and Nepal. Part of the Himalayas, the area has a dramatic landscape that includes India’s highest mountain",
     },
+    {
+        pkg_id:"4",
+        img_url: "./Assets/manali/img (7).jpg",
+        title: "Chilling Manali",
+        desc: "Manali is a high-altitude Himalayan resort town in India’s northern Himachal Pradesh state. It has a reputation as a backpacking center",
+    },
+    {
+        pkg_id:"5",
+        img_url: "./Assets/leh_ladak/img (2).jpg",
+        title: "Travelling to Leh Ladak",
+        desc: "Leh is the joint capital and largest city of Ladakh, a union territory of India. Leh, located in the Leh district, was also the historical capital of the Kingdom of Ladakh",
+    },
 ]
 
 const details_page = new Map();
