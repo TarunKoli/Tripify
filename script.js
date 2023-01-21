@@ -1,14 +1,22 @@
 const packages = [
     {
-        img_url: "./Assets/pexels-eberhard-grossgasteiger-640781.jpg",
-        title: "traveling to barcelona",
-        desc: "The state of Utah in united states is home to lots of beautiful National parks & Bryce Canyon National Park ranks as three of the most magnificient & inspiring",
+        pkg_id:"1",
+        img_url: "./Assets/new_orleans/img (5).jpg",
+        title: "Night life in New orleans",
+        desc: "New Orleans is a Louisiana city on the Mississippi River, near the Gulf of Mexico. Nicknamed the 'Big Easy', it's known for its round-the-clock nightlife",
     },
     {
-        img_url: "./Assets/pexels-eberhard-grossgasteiger-640781.jpg",
-        title: "traveling to barcelona",
-        desc: "The state of Utah in united states is home to lots of beautiful National parks & Bryce Canyon National Park ranks as three of the most magnificient & inspiring",
-    }
+        pkg_id:"2",
+        img_url: "./Assets/los_angeles/img (4).jpg",
+        title: "Explore Hollywood in Los angeles",
+        desc: "Los Angeles is a sprawling Southern California city and the center of the nation’s film and television industry.",
+    },
+    {
+        pkg_id:"3",
+        img_url: "./Assets/sikkim/img (1).jpg",
+        title: "Cultural Sikkim",
+        desc: "Sikkim is a state in northeast India, bordered by Bhutan, Tibet and Nepal. Part of the Himalayas, the area has a dramatic landscape that includes India’s highest mountain",
+    },
 ]
 
 const details_page = new Map();
@@ -222,7 +230,7 @@ function render_packages() {
 
         const card = document.createElement('div');
         card.classList.add('card');
-        card.setAttribute('pkg_id', i);
+        card.setAttribute('pkg_id', pkg.pkg_id);
 
         const card_img = document.createElement('div');
         card_img.classList.add('card_img');
@@ -248,7 +256,7 @@ function render_packages() {
 
         card.addEventListener("click", () => {
             const a = document.createElement('a');
-            a.href = `./details_page.html?pkg_id=${i}`;
+            a.href = `./details_page.html?pkg_id=${pkg.pkg_id}`;
             a.click();
         })
 
