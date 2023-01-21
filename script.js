@@ -29,6 +29,30 @@ const packages = [
         title: "Travelling to Leh Ladak",
         desc: "Leh is the joint capital and largest city of Ladakh, a union territory of India. Leh, located in the Leh district, was also the historical capital of the Kingdom of Ladakh",
     },
+    {
+        pkg_id: "6",
+        img_url: "./Assets/Barcelona/Barcelona (1).jpg",
+        title: "Traveling to Barcelona",
+        desc: "Barcelona is a city on the coast of northeastern Spain. It is the capital and largest city of the autonomous community of Catalonia, as well as the second most populous municipality of Spain.",
+    },
+    {
+        pkg_id: "7",
+        img_url: "./Assets/Bali/Bali (1).jpg",
+        title: "Traveling Bali, Indonesia",
+        desc: "Bali, Indonesia’s most famous island, is located to the west of Java in the Lesser Sunda Islands. It is world-renowned for its scenic rice terraces, fragrant cuisine, stunning beaches and a galore of culture and tradition.",
+    },
+    {
+        pkg_id: "8",
+        img_url: "./Assets/Sydney/Sydney (1).jpg",
+        title: "Traveling to Sydney",
+        desc: "Sydney is home to must-visit icons like the Sydney Harbour Bridge and Opera House, but this Harbour City is constantly evolving. New rooftop bars, theatre shows and designer shops pop up at every turn, and the urban excitement is perfectly balanced by afternoons spent lying on the sand.",
+    },
+    {
+        pkg_id: "9",
+        img_url: "./Assets/Maldives/Maldives (1).jpg",
+        title: "Traveling to Maldives",
+        desc: "The beauty of the Maldives is not only above the water. The Maldives is home to about five percent of the planet’s reefs that comes with an explosion of color contributed by soft and hard corals that form them. The reefs are home to a thousand species of fish. Lured by the rich nutrients that flow in with the currents, large pelagic fishes such as manta rays and whale sharks also make the Maldives their home.",
+    }
 ]
 
 const details_page = new Map();
