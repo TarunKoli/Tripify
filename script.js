@@ -94,7 +94,7 @@ details_page["1"] = {
 details_page["2"] = {
     title: "Bali, Indonesia",
     subtitle: "Bali, Indonesia’s most famous island, is located to the west of Java in the Lesser Sunda Islands. It is world-renowned for its scenic rice terraces, fragrant cuisine, stunning beaches and a galore of culture and tradition. ",
-    banner_img: "./Assets/Bali/Bali (2).jpg",
+    banner_img: "./Assets/Bali/Bali (5).jpg",
     banner_title:"Top things to do in Bali",
     desc1: [
         {
