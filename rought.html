@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Styles/global.css">
+    <link rel="stylesheet" href="./Styles/prompt.css">
+    <script src="https://kit.fontawesome.com/e7a0c04ff2.js" crossorigin="anonymous"></script>
+    <style>
+        .prompt_wrap{
+            height: 100vh;
+            width: 100%;
+            background: rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .prompt{
+            height: 72%;
+            width: 72%;
+            background: var(--bg-white);
+            box-shadow: 0 1px 25px rgba(0,0,0,0.2);
+            border-radius: 0.6rem;
+            overflow: hidden;
+        }
+        .prompt_book{
+            background: url(./Assets/book_bg.jpg);
+            background-position: center;
+            background-size: cover;
+        }   
+        .prompt .prompt_instruct{
+            display: none;
+        }
+        .prompt section{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            position: relative;
+        }
+        .left_half{
+            width: 50%;
+            padding: 5rem;
+            position: relative;
+        }
+        .prompt_book::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -10%;
+            width: 60%;
+            height: 100%;
+            background: rgba(255,255,255, 0.9);
+            transform: skewX(-15deg);
+        }
+        .left_half .book_heading h1{
+            font-size: 3.4rem;
+        }
+        .left_half form{
+            padding-top: 1.5rem;
+        }
+        .left_half .input{
+            margin-top: 4.5rem;
+        }
+        .left_half form .input>input{
+            height: 5rem;
+            width: 15rem;
+            background: var(--bg-white);
+            border: none;
+            width: 70%;
+            padding: 1rem 2.5rem;
+            font-size: 1.5rem;
+        }
+        .left_half form .input>input:focus{
+            outline: none;
+        }
+        .left_half form .input>input::placeholder{
+            color: #838383;
+        }
+        .left_half form .radio_wrap{
+            margin-top: 5rem;
+            display: flex;
+            align-items: center;
+        }
+        .left_half form .radio_wrap .radio_btn{
+            margin-right: 10%;
+            display: flex;
+            align-items: center;
+            color: #828282;
+            font-size: 1.6rem;
+            position: relative;
+        }
+        .left_half form .radio_wrap .radio_btn input[type="radio"]{
+            z-index: 10;
+            height: 2rem;
+            width: 2rem;
+            margin-right: 1.2rem;
+        }
+        .left_half form .radio_wrap .radio_btn input[type="radio"]:checked{
+            accent-color: #E8594E;
+        }
+        .left_half form button{
+            margin-top: 4.5rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="prompt_wrap">
+        <div class="prompt">
+            <section class="prompt_instruct">
+                <div class="close_btn">
+                <img src="./Assets/svg.svg" alt="close_btn">
+                </div>
+                <div class="images">
+                <div class="img_wrap">
+                    <img src="./Assets/pexels-eberhard-grossgasteiger-640781.jpg" alt="prompt_img" />
+                </div>
+                <div class="img_wrap">
+                    <img src="./Assets/pexels-creative-vix-9754.jpg" alt="prompt_img" />
+                </div>
+                </div>
+                <div class="prompt_ctn">
+                <h1>Start Booking Now</h1>
+                <h3>IMPORTANT – PLEASE READ THESE TERMS BEFORE BOOKING</h3>
+                <ul>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. </li>
+                    <li>Placerat orci nulla pellentesque dignissim enim sit. Vitae semper quis lectus nulla at volutpat
+                        diam ut venenatis. Malesuada pellentesque elit eget gravida cum sociis natoque pe</li>
+                    <li>Sed sed risus pretium quam. Aliquam sem et tortor consequat id. Volutpat odio facilisis mauris
+                        sit amet massa vitae. Mi bibendum neque egestas congue.</li>
+                    <li>
+                        Proin fermentum leo vel orci porta non pulvinar neque laoreet. Gravida neque convallis a cras
+                        semper. Molestie at elementum eu facilisis sed odio morbi quis.
+                        Faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget.
+                    </li>
+                </ul>
+                <button>Next Step</button>
+                </div>
+            </section>
+            <section class="prompt_book">
+                <div class="left_half">
+                    <div class="book_heading">
+                        <h1>Start Booking Now</h1>
+                    </div>
+                    <form action="#">
+                        <div class="input">
+                            <input type="text" name="name" placeholder="Full Name" />
+                        </div>
+                        <div class="input">
+                            <input type="email" name="email" placeholder="Email Address" />
+                        </div>
+                        <div class="radio_wrap">
+                            <div class="radio_btn">
+                                <input type="radio" name="group" />
+                                <label for="small_group">Small tour group</label>
+                            </div>
+                            <div class="radio_btn">
+                                <input type="radio" name="group" />
+                                <label for="small_group">Large tour group</label>
+                            </div>
+                        </div>
+                        <button>Book Now</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- <button id="open">Open prompt</button> -->
+
+    <script>
+        // const prompt_wrap = document.querySelector('.prompt_wrap');
+        // const prompty = prompt_wrap.querySelector('.prompt');
+        // const close_btn = prompty.querySelector('.close_btn'); 
+
+        // const open_promp = document.querySelector('#open')
+        
+        // open_promp.addEventListener('click',()=>{
+        //     prompty.classList.toggle('active');
+        //     prompt_wrap.classList.toggle('active');
+        // })
+        
+        // close_btn.addEventListener('click',()=>{
+        //     prompty.classList.toggle('active');
+        //     prompt_wrap.classList.toggle('active');
+        // })
+
+    </script>
+
+</body>
+
+</html>
