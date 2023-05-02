@@ -7,11 +7,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tripify</title>
   <link rel="stylesheet" href="./Styles/global.css">
+  <link rel="stylesheet" href="./Styles/prompt.css">
   <link rel="stylesheet" href="./Styles/home.css">
   <script src="https://kit.fontawesome.com/e7a0c04ff2.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+
+  <div class="prompt_wrap">
+    <div class="prompt">
+        <section class="prompt_instruct">
+            <div class="close_btn" onclick="promptClose()">
+              <img src="./Assets/svg.svg" alt="close_btn">
+            </div>
+            <div class="images">
+            <div class="img_wrap">
+                <img src="./Assets/pexels-eberhard-grossgasteiger-640781.jpg" alt="prompt_img" />
+            </div>
+            <div class="img_wrap">
+                <img src="./Assets/pexels-creative-vix-9754.jpg" alt="prompt_img" />
+            </div>
+            </div>
+            <div class="prompt_ctn">
+            <h1>Start Booking Now</h1>
+            <h3>IMPORTANT – PLEASE READ THESE TERMS BEFORE BOOKING</h3>
+            <ul>
+                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua. </li>
+                <li>Placerat orci nulla pellentesque dignissim enim sit. Vitae semper quis lectus nulla at volutpat
+                    diam ut venenatis. Malesuada pellentesque elit eget gravida cum sociis natoque pe</li>
+                <li>Sed sed risus pretium quam. Aliquam sem et tortor consequat id. Volutpat odio facilisis mauris
+                    sit amet massa vitae. Mi bibendum neque egestas congue.</li>
+                <li>
+                    Proin fermentum leo vel orci porta non pulvinar neque laoreet. Gravida neque convallis a cras
+                    semper. Molestie at elementum eu facilisis sed odio morbi quis.
+                    Faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget.
+                </li>
+            </ul>
+            <button>Next Step</button>
+            </div>
+        </section>
+        <section class="prompt_book">
+            <div class="left_half">
+                <div class="book_heading">
+                    <h1>Start Booking Now</h1>
+                </div>
+                <form action="#">
+                    <div class="input">
+                        <input type="text" name="name" placeholder="Full Name" />
+                    </div>
+                    <div class="input">
+                        <input type="email" name="email" placeholder="Email Address" />
+                    </div>
+                    <div class="radio_wrap">
+                        <div class="radio_btn">
+                            <input type="radio" name="group" />
+                            <label for="small_group">Small tour group</label>
+                        </div>
+                        <div class="radio_btn">
+                            <input type="radio" name="group" />
+                            <label for="small_group">Large tour group</label>
+                        </div>
+                    </div>
+                    <button>Book Now</button>
+                </form>
+            </div>
+        </section>
+    </div>
+  </div>
 
   <main id="sec1" page="home">
     <div class="layer"></div>
@@ -32,7 +95,7 @@
         <a href="./index.html">Home</a>
         <a href="./packages.html">Services</a>
         <a href="./contact_us.html">Contact</a>
-        <a href="#">Login</a>
+        <a href="#" onclick="promptActive()">Login</a>
       </div>
     </nav>
     <section class="sec1">
@@ -378,7 +441,18 @@
         }, 300)
       }
     })
-  </script>
+
+    function promptActive(){
+      const prompt = document.querySelector('.prompt_wrap');
+      
+      prompt.classList.add('active');
+    }
+    
+    function promptClose(){
+      const prompt = document.querySelector('.prompt_wrap');
+      prompt.classList.remove('active');
+    }
+</script>
 </body>
 
 </html>

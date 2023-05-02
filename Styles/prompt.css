@@ -1,3 +1,42 @@
+.prompt_wrap{
+    height: 100vh;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: none;
+}
+.prompt_wrap.active{
+    display: flex;
+}
+.prompt{
+    height: 72%;
+    width: 72%;
+    background: var(--bg-white);
+    box-shadow: 0 1px 25px rgba(0,0,0,0.2);
+    border-radius: 0.6rem;
+    overflow: hidden;
+}  
+.prompt .prompt_instruct,
+.prompt .prompt_book{
+    display: none !important;
+}
+.prompt .prompt_instruct.active{
+    display: flex !important;
+}
+.prompt .prompt_book.active{
+    display: block !important;
+}
+.prompt section{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: relative;
+}
 .prompt_instruct .images{
     height: 100%;
     flex-basis: 35%;
@@ -60,4 +99,75 @@
     top: 6%;
     right: 4%;
     cursor: pointer;    
+}
+
+.prompt_book{
+    background: url(../Assets/book_bg.jpg);
+    background-position: center;
+    background-size: cover;
+} 
+.left_half{
+    width: 50%;
+    padding: 5rem;
+    position: relative;
+}
+.prompt_book::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10%;
+    width: 60%;
+    height: 100%;
+    background: rgba(255,255,255, 0.9);
+    transform: skewX(-15deg);
+}
+.left_half .book_heading h1{
+    font-size: 3.4rem;
+}
+.left_half form{
+    padding-top: 1.5rem;
+}
+.left_half .input{
+    margin-top: 4.5rem;
+}
+.left_half form .input>input{
+    height: 5rem;
+    width: 15rem;
+    background: var(--bg-white);
+    border: none;
+    width: 70%;
+    padding: 1rem 2.5rem;
+    font-size: 1.5rem;
+}
+.left_half form .input>input:focus{
+    outline: none;
+}
+.left_half form .input>input::placeholder{
+    color: #838383;
+}
+.left_half form .radio_wrap{
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+}
+.left_half form .radio_wrap .radio_btn{
+    margin-right: 10%;
+    display: flex;
+    align-items: center;
+    color: #828282;
+    font-size: 1.6rem;
+    position: relative;
+}
+.left_half form .radio_wrap .radio_btn input[type="radio"]{
+    z-index: 10;
+    height: 2rem;
+    width: 2rem;
+    margin-right: 1.2rem;
+}
+.left_half form .radio_wrap .radio_btn input[type="radio"]:checked{
+    accent-color: #E8594E;
+}
+.left_half form button{
+    margin-top: 4.5rem;
+    letter-spacing: 1px;
 }
