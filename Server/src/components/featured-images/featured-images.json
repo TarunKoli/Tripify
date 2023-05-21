@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_featured_images_featured_images",
+  "info": {
+    "displayName": "Featured Images",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "img1": {
+      "type": "text",
+      "required": true
+    },
+    "img2": {
+      "type": "text",
+      "required": true
+    },
+    "img3": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

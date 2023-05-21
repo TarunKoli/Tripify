@@ -48,29 +48,73 @@
                 </div>
             </section>
             <section class="prompt_book">
-                <div class="left_half">
+                <!-- <div class="close_btn" onclick="promptClose('booking')">
+                    <img src="./Assets/svg.svg" alt="close_btn">
+                </div> -->
+                <div class="book_wrap">
+                    <span class="skew_bg"></span>
+                    <div class="left_half">
                     <div class="book_heading">
                         <h1>Start Booking Now</h1>
                     </div>
-                    <form action="#">
-                        <div class="input">
-                            <input type="text" name="name" placeholder="Full Name" />
-                        </div>
-                        <div class="input">
-                            <input type="email" name="email" placeholder="Email Address" />
-                        </div>
-                        <div class="radio_wrap">
-                            <div class="radio_btn">
-                                <input type="radio" name="group" />
-                                <label for="small_group">Small tour group</label>
+                    <form onsubmit="changeSlide('book_ext', event)">
+                        <div class="step-1">
+                            <div class="input">
+                                <input type="text" name="name" placeholder="Full Name" />
                             </div>
-                            <div class="radio_btn">
-                                <input type="radio" name="group" />
-                                <label for="small_group">Large tour group</label>
+                            <div class="input">
+                                <input type="email" name="email" placeholder="Email Address" />
                             </div>
-                        </div>
-                        <button>Book Now</button>
+                            <div class="input">
+                                <input type="tel" name="mobile" placeholder="Mobile No." />
+                            </div>
+                            <div class="radio_wrap">
+                                <div class="radio_btn">
+                                    <input type="radio" name="group" />
+                                    <label for="small_group">Economic</label>
+                                </div>
+                                <div class="radio_btn">
+                                    <input type="radio" name="group" />
+                                    <label for="small_group">Buisness</label>
+                                </div>
+                            </div>
+                            <button>Next</button>
+                        </div>        
                     </form>
+                    </div>
+                    <div class="left_half right_half">
+                    <div class="book_heading">
+                        <h1>Complete Booking</h1>
+                    </div>
+                    <form action="#">
+                        <div class="step-1">
+                            <div class="input d-flex">
+                                <input type="text" class="mr-4" name="check-in" placeholder="Check In" onfocus="(this.type='date')" />
+                                <input type="text" name="check-out" placeholder="Check Out" onfocus="(this.type='date')" />
+                            </div>
+                            <div class="input d-flex">
+                                <div class="counter mr-4 w-50 adult">
+                                    <span class="dec" onclick="counter('adult','-')">-</span>
+                                    <input type="text" class="w-100" name="adults" placeholder="Adults" readonly />
+                                    <span class="inc" onclick="counter('adult','+')">+</span>
+                                </div>
+                                <div class="counter w-50 kid">
+                                    <span class="dec" onclick="counter('kid','-')">-</span>
+                                    <input type="text" class="w-100" name="kids" placeholder="Kids" readonly />
+                                    <span class="inc" onclick="counter('kid','+')">+</span>
+                                </div>
+                            </div>
+                            <div class="input">
+                                <div class="counter mr-4 w-100 room">
+                                    <span class="dec" onclick="counter('room','-')">-</span>
+                                    <input type="text" class="w-100" name="rooms" placeholder="No. of Rooms" readonly />
+                                    <span class="inc" onclick="counter('room','+')">+</span>
+                                </div>
+                            </div>
+                            <button>Complete</button>
+                        </div>        
+                    </form>
+                    </div>
                 </div>
             </section>
         </div>
@@ -258,7 +302,7 @@
           <img src="./Assets/pexels-matheus-guimarães-611328 (1).jpg" alt="img1">
         </div>
         </div>
-      </section>
+    </section>
 
     <footer>
         <div class="upper">
@@ -336,6 +380,40 @@
             }
         })
 
+        function counter(target, op){
+            console.log('clicked')
+            if(!target) return;
+            const parent = document.querySelector(`.${target}`);
+            if(!parent) return;
+            const inp = parent.querySelector('input');
+            if(!inp) return;
+            
+            let val = parseInt(inp.value || 0);
+
+            switch(op){
+                case '+':{
+                  
+                    if(val+1>10) return;
+
+                    inp.value=val+1;
+                    break;
+                }
+                case '-':{
+                   
+                    if(val-1<=0){
+                        inp.value="";
+                        return;
+                    }
+
+                    inp.value=val-1;
+                    break;
+                }
+                default:{
+
+                }
+            }
+        }
+
         function promptActive(type){
             const prompt = document.querySelector('.prompt_wrap');
             
@@ -350,7 +428,7 @@
 
         }
         
-        function changeSlide(activeSlide){
+        function changeSlide(activeSlide,e){
             const guideline = document.querySelector('.prompt_instruct');
             const book_form = document.querySelector('.prompt_book');
             
@@ -363,6 +441,17 @@
                 case 'booking':{
                     guideline.classList.remove('active');
                     book_form.classList.add('active');
+                    break;
+                }
+                case 'book_ext':{
+                    e.preventDefault();
+                    const skewBg = document.querySelector('.skew_bg');
+                    const leftHalf = document.querySelector('.left_half');
+                    const rightHalf = document.querySelector('.right_half');
+                
+                    skewBg.classList.toggle('ext');
+                    leftHalf.classList.toggle('invisible');
+                    rightHalf.classList.toggle('visible');
                     break;
                 }
                 default:{

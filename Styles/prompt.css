@@ -94,7 +94,8 @@
     background: linear-gradient(to right, #73AFBA, #E8594E);
     cursor: pointer;
 }
-.prompt_instruct .close_btn{
+.prompt_instruct .close_btn,
+.prompt_book .close_btn{
     position: absolute;
     top: 6%;
     right: 4%;
@@ -111,7 +112,7 @@
     padding: 5rem;
     position: relative;
 }
-.prompt_book::before{
+.book_wrap .skew_bg{
     content: '';
     position: absolute;
     top: 0;
@@ -120,6 +121,17 @@
     height: 100%;
     background: rgba(255,255,255, 0.9);
     transform: skewX(-15deg);
+    transition: 0.3s ease-in-out;
+}
+.skew_bg.ext{
+    left: 50%;
+}
+.left_half{
+    opacity: 1;
+    transition: 0.3s ease-in-out;
+}
+.left_half.invisible{
+    opacity: 0;
 }
 .left_half .book_heading h1{
     font-size: 3.4rem;
@@ -128,11 +140,10 @@
     padding-top: 1.5rem;
 }
 .left_half .input{
-    margin-top: 4.5rem;
+    margin-top: 3.5rem;
 }
-.left_half form .input>input{
+.left_half form .input input{
     height: 5rem;
-    width: 15rem;
     background: var(--bg-white);
     border: none;
     width: 70%;
@@ -146,7 +157,7 @@
     color: #838383;
 }
 .left_half form .radio_wrap{
-    margin-top: 5rem;
+    margin-top: 4rem;
     display: flex;
     align-items: center;
 }
@@ -170,4 +181,88 @@
 .left_half form button{
     margin-top: 4.5rem;
     letter-spacing: 1px;
+}
+
+.book_wrap{
+    display: flex;
+}
+.right_half{
+    width: 50%;
+    padding: 5rem;
+    z-index: 10;
+    opacity: 0;
+    padding-left: 10%;
+    transition: 0.3s ease-in-out;
+}
+.right_half.visible{
+    opacity: 1;
+}
+/* .right_half,
+.right_half form,
+.right_half form .step-1{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+} */
+.right_half form{
+    width: 100%;
+}
+.right_half form .step-1{
+    width: 100%;
+}
+.right_half form .step-1 .input{
+    width: 100%;
+    /* display: flex; */
+    /* justify-content: flex-end; */
+}
+.d-flex{
+    display: flex !important;
+}
+.mr-1{
+    margin-right: 0.25rem !important;
+}
+.mr-2{
+    margin-right: 0.5rem !important;
+}
+.mr-3{
+    margin-right: 0.75rem !important;
+}
+.mr-4{
+    margin-right: 1rem !important;
+}
+.w-50{
+    width: 50% !important;
+}
+.w-100{
+    width: 100% !important;
+}
+
+.counter{
+    position: relative;
+}
+.counter input{
+    padding-left: 5rem !important;
+    padding-right: 5rem !important;
+    text-align: center;
+}
+.counter span{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 4rem;
+    font-weight: normal;
+    cursor: pointer;
+}
+.counter span:first-child{
+    color: #E8594E;
+    left: 10%;
+}
+.counter span:last-child{
+    color: #73AFBA;
+    right: 10%;
+    font-size: 3rem;
+}
+
+input:focus{
+    outline: none;
 }

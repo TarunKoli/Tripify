@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "packages",
+  "info": {
+    "singularName": "package",
+    "pluralName": "packages",
+    "displayName": "Packages",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "package_info": {
+      "type": "component",
+      "repeatable": false,
+      "component": "package-info.package-info"
+    },
+    "subtitle": {
+      "type": "text",
+      "required": true
+    },
+    "banner_img": {
+      "type": "text",
+      "required": true
+    },
+    "banner_title": {
+      "type": "text",
+      "required": true
+    },
+    "featured_images": {
+      "displayName": "Featured Images",
+      "type": "component",
+      "repeatable": false,
+      "component": "featured-images.featured-images",
+      "required": true
+    }
+  }
+}
