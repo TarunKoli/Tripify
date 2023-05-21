@@ -99,7 +99,8 @@
     position: absolute;
     top: 6%;
     right: 4%;
-    cursor: pointer;    
+    cursor: pointer;  
+    z-index: 100;  
 }
 
 .prompt_book{

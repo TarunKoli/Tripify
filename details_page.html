@@ -14,8 +14,8 @@
 
 <body>
 
-    <div class="prompt_wrap">
-        <div class="prompt">
+    <div class="prompt_wrap" onclick="promptClose('booking')">
+        <div class="prompt" onclick="stopEventTravel(event)">
             <section class="prompt_instruct">
                 <div class="close_btn" onclick="promptClose('booking')">
                   <img src="./Assets/svg.svg" alt="close_btn">
@@ -60,13 +60,13 @@
                     <form onsubmit="changeSlide('book_ext', event)">
                         <div class="step-1">
                             <div class="input">
-                                <input type="text" name="name" placeholder="Full Name" />
+                                <input type="text" name="name" placeholder="Full Name" required />
                             </div>
                             <div class="input">
-                                <input type="email" name="email" placeholder="Email Address" />
+                                <input type="email" name="email" placeholder="Email Address" required />
                             </div>
                             <div class="input">
-                                <input type="tel" name="mobile" placeholder="Mobile No." />
+                                <input type="tel" name="mobile" placeholder="Mobile No." required />
                             </div>
                             <div class="radio_wrap">
                                 <div class="radio_btn">
@@ -95,19 +95,19 @@
                             <div class="input d-flex">
                                 <div class="counter mr-4 w-50 adult">
                                     <span class="dec" onclick="counter('adult','-')">-</span>
-                                    <input type="text" class="w-100" name="adults" placeholder="Adults" readonly />
+                                    <input type="text" class="w-100" name="adults" placeholder="Adults" readonly required />
                                     <span class="inc" onclick="counter('adult','+')">+</span>
                                 </div>
                                 <div class="counter w-50 kid">
                                     <span class="dec" onclick="counter('kid','-')">-</span>
-                                    <input type="text" class="w-100" name="kids" placeholder="Kids" readonly />
+                                    <input type="text" class="w-100" name="kids" placeholder="Kids" readonly required />
                                     <span class="inc" onclick="counter('kid','+')">+</span>
                                 </div>
                             </div>
                             <div class="input">
                                 <div class="counter mr-4 w-100 room">
                                     <span class="dec" onclick="counter('room','-')">-</span>
-                                    <input type="text" class="w-100" name="rooms" placeholder="No. of Rooms" readonly />
+                                    <input type="text" class="w-100" name="rooms" placeholder="No. of Rooms" readonly required />
                                     <span class="inc" onclick="counter('room','+')">+</span>
                                 </div>
                             </div>
@@ -380,6 +380,10 @@
             }
         })
 
+        function stopEventTravel(e){
+            e.stopPropagation()
+        }
+
         function counter(target, op){
             console.log('clicked')
             if(!target) return;
@@ -461,7 +465,7 @@
             }
         }
 
-        function promptClose(){
+        function promptClose(type){
             const prompt = document.querySelector('.prompt_wrap');
             prompt.classList.remove('active');
             
@@ -470,6 +474,14 @@
                 const book_form = document.querySelector('.prompt_book');
                 guideline.classList.remove('active');
                 book_form.classList.remove('active');
+
+                const skewBg = document.querySelector('.skew_bg');
+                const leftHalf = document.querySelector('.left_half');
+                const rightHalf = document.querySelector('.right_half');
+                
+                skewBg.classList.remove('ext');
+                leftHalf.classList.remove('invisible');
+                rightHalf.classList.remove('visible');
             }
         }
     </script>
