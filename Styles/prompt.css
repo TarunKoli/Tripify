@@ -108,6 +108,12 @@
     background-position: center;
     background-size: cover;
 } 
+.login{
+    background: url(../Assets/pexels-michał-osiński-3454270.jpg);
+    background-position: center;
+    background-size: cover;
+
+}
 .left_half{
     width: 50%;
     padding: 5rem;
@@ -127,6 +133,9 @@
 .skew_bg.ext{
     left: 50%;
 }
+.login .skew_bg{
+    background: rgba(255,255,255, 0.8);
+}
 .left_half{
     opacity: 1;
     transition: 0.3s ease-in-out;
@@ -142,6 +151,9 @@
 }
 .left_half .input{
     margin-top: 3.5rem;
+}
+.login .left_half .input{
+    margin-top: 3rem;
 }
 .left_half form .input input{
     height: 5rem;
@@ -195,16 +207,14 @@
     padding-left: 10%;
     transition: 0.3s ease-in-out;
 }
+.login .right_half{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .right_half.visible{
     opacity: 1;
 }
-/* .right_half,
-.right_half form,
-.right_half form .step-1{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-} */
 .right_half form{
     width: 100%;
 }
@@ -213,8 +223,6 @@
 }
 .right_half form .step-1 .input{
     width: 100%;
-    /* display: flex; */
-    /* justify-content: flex-end; */
 }
 .d-flex{
     display: flex !important;
@@ -266,4 +274,14 @@
 
 input:focus{
     outline: none;
+}
+
+.login_btns span{
+    margin-left: 2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #808080;
+}
+.login_btns span:hover{
+    text-decoration: underline;
 }
