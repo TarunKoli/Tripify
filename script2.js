@@ -79,7 +79,7 @@ function promptActive(type){
 
 }
 
-function changeSlide(activeSlide,e){
+function changeSlide(activeSlide,e,elem=""){
    const guideline = document.querySelector('.prompt_instruct');
    const book_form = document.querySelector('.prompt_book');
    
@@ -95,10 +95,10 @@ function changeSlide(activeSlide,e){
            break;
        }
        case 'book_ext':{
-           e.preventDefault();
-           const skewBg = document.querySelector('.skew_bg');
-           const leftHalf = document.querySelector('.left_half');
-           const rightHalf = document.querySelector('.right_half');
+           if(e) e.preventDefault();
+           const skewBg = document.querySelector(`${elem} .skew_bg`);
+           const leftHalf = document.querySelector(`${elem} .left_half`);
+           const rightHalf = document.querySelector(`${elem} .right_half`);
        
            skewBg.classList.toggle('ext');
            leftHalf.classList.toggle('invisible');
@@ -119,18 +119,19 @@ function promptClose(type){
    if(type==='booking'){
        const guideline = document.querySelector('.prompt_instruct');
        const book_form = document.querySelector('.prompt_book');
-       guideline.classList.remove('active');
-       book_form.classList.remove('active');
+       
+       if(guideline) guideline.classList.remove('active');
+       if(book_form) book_form.classList.remove('active');
 
        const skewBg = document.querySelector('.skew_bg');
        const leftHalf = document.querySelector('.left_half');
        const rightHalf = document.querySelector('.right_half');
        
-       skewBg.classList.remove('ext');
-       leftHalf.classList.remove('invisible');
-       rightHalf.classList.remove('visible');
+       if(skewBg) skewBg.classList.remove('ext');
+       if(leftHalf) leftHalf.classList.remove('invisible');
+       if(rightHalf) rightHalf.classList.remove('visible');
 
        const login_form = document.querySelector('.login');
-       login_form.classList.remove('active');
+       if(login_form) login_form.classList.remove('active');
    }
 }

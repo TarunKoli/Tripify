@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_package_info_package_details",
+  "info": {
+    "displayName": "Package_Detail",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text",
+      "required": true
+    },
+    "banner_img": {
+      "type": "text",
+      "required": true
+    },
+    "banner_title": {
+      "type": "text"
+    },
+    "featured_images": {
+      "type": "component",
+      "repeatable": false,
+      "component": "featured-images.featured-images",
+      "required": true
+    },
+    "desc1": {
+      "displayName": "top_description",
+      "type": "component",
+      "repeatable": true,
+      "component": "top-description.top-description"
+    },
+    "desc2": {
+      "type": "component",
+      "repeatable": true,
+      "component": "top-description.top-description"
+    }
+  }
+}

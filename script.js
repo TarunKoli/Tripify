@@ -1,3 +1,4 @@
+const pkg_info_url='http://localhost:1337/api/packages?populate=package_info';
 const packages = [
     {
         pkg_id: "1",
@@ -698,28 +699,25 @@ details_page["9"] = {
 }
 
 
-function set_Intro(pkg_id) {
+function set_Intro(d_title, d_subtitle, d_banner_img, d_banner_title) {
     const details = document.querySelector('.details_sec1');
-    const data = details_page[pkg_id] || details_page["1"];
 
     const intro = details.querySelector('.intro');
     const title = intro.querySelector('h1');
     const subTitle = intro.querySelector('p');
-    title.textContent = data.title;
-    subTitle.textContent = data.subtitle;
+    title.textContent = d_title;
+    subTitle.textContent = d_subtitle;
 
     const banner_img = details.querySelector('.video img');
     const banner_title = details.querySelector('.video h2');
-    banner_img.src = data.banner_img;
-    banner_title.textContent = data.banner_title;
+    banner_img.src = d_banner_img;
+    banner_title.textContent = d_banner_title;
 }
 
-function set_Description(pkg_id) {
+function set_Description(descs=[]) {
     const details = document.querySelector('.details_sec2');
-    const data = details_page[pkg_id] || details_page["1"];
 
-    data.desc1.forEach((des, i) => {
-
+    descs.forEach((des, i) => {
         const row = document.createElement('div');
         row.classList.add('row');
 
@@ -735,7 +733,7 @@ function set_Description(pkg_id) {
 
         p.textContent = 'LOS ANGELES';
         h2.textContent = "Weather";
-        h1.textContent = "14";
+        h1.textContent = des.weather || '';
 
         weather.append(p, h2, h1);
 
@@ -757,7 +755,10 @@ function set_Description(pkg_id) {
         const info = document.createElement('div');
         info.classList.add('info');
 
-        des.para.forEach((p) => {
+        let paragraphs = des.para.split('/n');
+        
+        if(paragraphs && paragraphs.length>0)
+        paragraphs.forEach((p) => {
             const info_p = document.createElement('p');
             const break_line = document.createElement('br');
             info_p.textContent = p;
@@ -772,27 +773,25 @@ function set_Description(pkg_id) {
 
 }
 
-function set_feature_img(pkg_id) {
+function set_feature_img(images) {
     const details = document.querySelector('.details_sec3');
-    const data = details_page[pkg_id] || details_page["1"];
 
     const video_cards = details.querySelectorAll('.video_cards img');
-    video_cards[0].src = data.featured_imgs.img1;
-    video_cards[1].src = data.featured_imgs.img2;
-    video_cards[2].src = data.featured_imgs.img3;
+    video_cards[0].src = images.img1;
+    video_cards[1].src = images.img2;
+    video_cards[2].src = images.img3;
 }
 
-function set_bottom_desc(pkg_id) {
+function set_bottom_desc(descs=[]) {
     const details = document.querySelector('.details_sec4');
-    const data = details_page[pkg_id] || details_page["1"];
 
-    data.desc2.forEach((des) => {
+    descs.forEach((des) => {
         const aside = document.createElement('aside');
         const h1 = document.createElement('h1');
         h1.textContent = des.heading;
         aside.appendChild(h1);
 
-        des.para.forEach((para) => {
+        des.para?.split('/n').forEach((para) => {
             const p = document.createElement('p');
             const br = document.createElement('br');
             p.textContent = para;
@@ -805,19 +804,32 @@ function set_bottom_desc(pkg_id) {
 
 }
 
-function render_details() {
+async function render_details() {
     const url = new URLSearchParams(window.location.href.split("?")[1]);
 
-    set_Intro(url.get('pkg_id'));
-    set_Description(url.get('pkg_id'));
-    set_feature_img(url.get('pkg_id'));
-    set_bottom_desc(url.get('pkg_id'));
+    let res = await fetch(`http://localhost:1337/api/packages/${url.get('pkg_id')}?populate[package_detail][populate]=*`);
+        
+    if(res.ok){
+        res = await res.json();
+
+        if(res.data && Object.entries(res.data).length>0){
+            const details = {...res.data?.attributes?.package_detail};
+            set_Intro(details.title,details.subtitle,details.banner_img, details.banner_title);
+            set_Description(details.desc1);
+            set_feature_img(details.featured_images);
+            set_bottom_desc(details.desc2);            
+        }
+    }
+
+
 }
 
-function render_packages() {
-    const pkg_list = document.querySelector('.pkg_list_wrapper');
 
-    packages.forEach((pkg, i) => {
+function render_package(pkg) {
+    
+    if(!pkg || Object.entries(pkg).length===0) return;
+
+    const pkg_list = document.querySelector('.pkg_list_wrapper');
 
         const card = document.createElement('div');
         card.classList.add('card');
@@ -839,7 +851,7 @@ function render_packages() {
 
         span.textContent = "destination";
         title.textContent = pkg.title;
-        desc.textContent = pkg.desc;
+        desc.textContent = pkg.subtitle;
 
         card_ctn.append(span, title, desc);
 
@@ -852,7 +864,23 @@ function render_packages() {
         })
 
         pkg_list.appendChild(card);
-    })
+   
+}
+
+async function fetch_packages(){
+    let res = await fetch(pkg_info_url);
+        
+    if(res.ok){
+        res = await res.json();
+
+        if(res.data && res.data.length>0){
+            
+            res.data.forEach((pkg)=>{
+                render_package(pkg.attributes.package_info);
+            })
+        }
+    }
+    
 }
 
 function redirect(path){

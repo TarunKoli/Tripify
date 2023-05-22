@@ -12,33 +12,15 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "text",
-      "required": true
-    },
     "package_info": {
       "type": "component",
       "repeatable": false,
       "component": "package-info.package-info"
     },
-    "subtitle": {
-      "type": "text",
-      "required": true
-    },
-    "banner_img": {
-      "type": "text",
-      "required": true
-    },
-    "banner_title": {
-      "type": "text",
-      "required": true
-    },
-    "featured_images": {
-      "displayName": "Featured Images",
+    "package_detail": {
       "type": "component",
       "repeatable": false,
-      "component": "featured-images.featured-images",
-      "required": true
+      "component": "package-info.package-detail"
     }
   }
 }

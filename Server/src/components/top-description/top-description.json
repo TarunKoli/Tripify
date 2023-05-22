@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_top_description_top_descriptions",
+  "info": {
+    "displayName": "top_description",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "text",
+      "required": true
+    },
+    "weather": {
+      "type": "string",
+      "required": false
+    },
+    "img": {
+      "type": "text",
+      "required": false
+    },
+    "para": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

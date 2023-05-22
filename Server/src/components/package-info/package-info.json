@@ -1,7 +1,8 @@
 {
   "collectionName": "components_package_info_package_infos",
   "info": {
-    "displayName": "Package_Info"
+    "displayName": "Package_Info",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -18,8 +19,8 @@
       "type": "text",
       "required": true
     },
-    "desc": {
-      "type": "richtext",
+    "subtitle": {
+      "type": "text",
       "required": true
     }
   }

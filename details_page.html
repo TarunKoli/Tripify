@@ -117,30 +117,79 @@
                     </div>
                 </div>
             </section>
+            <section class="prompt_book login">
+                <div class="book_wrap">
+                    <span class="skew_bg"></span>
+                    <div class="left_half">
+                    <div class="book_heading">
+                        <h1>Join Tripify Today!</h1>
+                    </div>
+                    <form>
+                        <div class="step-1">
+                            <div class="input">
+                                <input type="text" name="name" placeholder="Full Name" required />
+                            </div>
+                            <div class="input">
+                                <input type="email" name="email" placeholder="Email Address" required />
+                            </div>
+                            <div class="input">
+                                <input type="password" name="password" placeholder="Password" required />
+                            </div>
+                            <div class="input">
+                                <input type="password" name="confirm_pass" placeholder="Confirm Password" required />
+                            </div>
+                            <div class="login_btns">
+                              <button>Register</button>
+                              <span onclick="changeSlide('book_ext', event, '.login')">Already have an account ?</span>
+                            </div>                        
+                        </div>        
+                    </form>
+                    </div>
+                    <div class="left_half right_half">
+                    <div class="book_heading">
+                        <h1>Welcome Back!</h1>
+                    </div>
+                    <form action="#">
+                        <div class="step-1">
+                          <div class="input">
+                            <input type="email" name="email" placeholder="Email Address" required />
+                          </div>
+                          <div class="input">
+                            <input type="password" name="password" placeholder="Password" required />
+                          </div>
+                          <div class="login_btns">
+                            <button>Login</button>
+                            <span onclick="changeSlide('book_ext', event, '.login')">New User ?</span>
+                          </div>
+                        </div>        
+                    </form>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 
     <main page="details">
         <nav>
             <div class="icons">
-                <i class="fa fa-brands fa-facebook-f"></i>
-                <i class="fa fa-brands fa-twitter"></i>
+              <i class="fa fa-brands fa-facebook-f"></i>
+              <i class="fa fa-brands fa-twitter"></i>
             </div>
             <h2 class="hero_title">TRIPIFY</h2>
             <div class="ham_wrapper">
-                <div class="hamburger">
-                    <div></div>
-                    <div></div>
-                </div>
-                <aside class="ham_layer"></aside>
+              <div class="hamburger">
+                <div></div>
+                <div></div>
+              </div>
+              <aside class="ham_layer"></aside>
             </div>
             <div class="links">
-            <a href="./index.html">Home</a>
-            <a href="./packages.html">Services</a>
-            <a href="./contact_us.html">Contact</a>
-            <a href="#">Login</a>
-          </div>
-        </nav>
+              <a href="./index.html">Home</a>
+              <a href="./packages.html">Services</a>
+              <a href="./contact_us.html">Contact</a>
+              <a onclick="promptActive('login')">Login</a>
+            </div>
+          </nav>
     </main>
 
     <section class="details_sec1">
