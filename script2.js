@@ -26,31 +26,56 @@ function stopEventTravel(e){
 }
 
 function counter(target, op){
-   console.log('clicked')
    if(!target) return;
    const parent = document.querySelector(`.${target}`);
    if(!parent) return;
    const inp = parent.querySelector('input');
    if(!inp) return;
+   const amount = document.querySelector('#inp_amt');
+   if(!amount) return;
    
-   let val = parseInt(inp.value || 0);
+   let pkg_amt = parseInt(amount.getAttribute('data-val') || 0)
+   
+   let field = inp.getAttribute('data-field');
+   
+   let val = parseInt(inp.getAttribute('data-val') || 0);
+   let cost = 0;
+   let lower_bound=0;
+
+   if(field==='Adults'){
+        lower_bound = pkg_cost.adults;
+        cost = pkg_cost.adult_cost;
+    }else if(field==='Kids') {
+       lower_bound = pkg_cost.kids;
+       cost = pkg_cost.kid_cost;
+    }else if(field==='Rooms'){
+       lower_bound = pkg_cost.rooms;
+        cost = pkg_cost.room_cost;
+    }
 
    switch(op){
        case '+':{
          
            if(val+1>10) return;
 
-           inp.value=val+1;
+           inp.value=`${field}(${val+1})`;
+           inp.setAttribute('data-val',val+1);
+           amount.value=`Rs. ${pkg_amt+cost || ''}`;
+           amount.setAttribute('data-val',pkg_amt+cost);
            break;
        }
        case '-':{
           
-           if(val-1<=0){
-               inp.value="";
+           if(val-1<lower_bound){
+               inp.value=`${field}(${lower_bound})`;
+               inp.setAttribute('data-val',0);
                return;
            }
 
-           inp.value=val-1;
+           inp.value=`${field}(${val-1})`;
+           inp.setAttribute('data-val',val-1);
+           amount.value=`Rs. ${pkg_amt-cost || ''}`;
+           amount.setAttribute('data-val',pkg_amt-cost);
            break;
        }
        default:{
@@ -103,6 +128,8 @@ function changeSlide(activeSlide,e,elem=""){
            skewBg.classList.toggle('ext');
            leftHalf.classList.toggle('invisible');
            rightHalf.classList.toggle('visible');
+
+           if(elem==='.booking') set_package_cost();
            break;
        }
        default:{

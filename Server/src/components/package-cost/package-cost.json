@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_package_cost_package_costs",
+  "info": {
+    "displayName": "Package_Cost"
+  },
+  "options": {},
+  "attributes": {
+    "amount": {
+      "type": "float",
+      "required": true
+    },
+    "adults": {
+      "type": "integer",
+      "required": true,
+      "default": 2
+    },
+    "adult_cost": {
+      "type": "decimal",
+      "required": true
+    },
+    "kids": {
+      "type": "integer",
+      "required": true,
+      "default": 2
+    },
+    "kid_cost": {
+      "type": "float",
+      "required": true
+    },
+    "rooms": {
+      "type": "integer",
+      "default": 2,
+      "required": true
+    },
+    "room_cost": {
+      "type": "float",
+      "required": true
+    }
+  }
+}

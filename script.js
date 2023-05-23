@@ -56,6 +56,8 @@ const packages = [
     }
 ]
 
+var pkg_cost={};
+
 const details_page = new Map();
 details_page["1"] = {
     title: "New Orleans",
@@ -804,6 +806,42 @@ function set_bottom_desc(descs=[]) {
 
 }
 
+function set_package_cost(){
+
+    const radio_btns = document.querySelector('.booking .radio_wrap');
+    const radio_checked = radio_btns.querySelector('input[type = radio]:checked');
+    
+    if(radio_checked.value==='buisness'){
+        pkg_cost.adult_cost*=1.5;
+        pkg_cost.kid_cost*=1.5;
+        pkg_cost.room_cost*=1.5;
+        pkg_cost.amount*=1.2;
+    }
+
+    const adults = document.querySelector('#inp_adults');
+    const kids = document.querySelector('#inp_kids');
+    const rooms = document.querySelector('#inp_rooms');
+    const amount = document.querySelector('#inp_amt');
+
+    console.log(pkg_cost);
+    adults.value=`Adults(${pkg_cost.adults || ''})`;
+    adults.setAttribute('data-val',pkg_cost.adults)
+    adults.setAttribute('data-field','Adults');
+    
+    kids.value=`Kids(${pkg_cost.kids || ''})`;
+    kids.setAttribute('data-val',pkg_cost.kids)
+    kids.setAttribute('data-field','Kids');
+    
+    rooms.value=`Rooms(${pkg_cost.rooms || ''})`;
+    rooms.setAttribute('data-val',pkg_cost.rooms)
+    rooms.setAttribute('data-field','Rooms');
+    
+    amount.value=`Rs. ${pkg_cost.amount || ''}`;
+    amount.setAttribute('data-val',pkg_cost.amount)
+    amount.setAttribute('data-field','Rs. ');
+
+}
+
 async function render_details() {
     const url = new URLSearchParams(window.location.href.split("?")[1]);
 
@@ -817,7 +855,8 @@ async function render_details() {
             set_Intro(details.title,details.subtitle,details.banner_img, details.banner_title);
             set_Description(details.desc1);
             set_feature_img(details.featured_images);
-            set_bottom_desc(details.desc2);            
+            set_bottom_desc(details.desc2);        
+            pkg_cost=details.package_cost;
         }
     }
 

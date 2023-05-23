@@ -47,34 +47,31 @@
                 <button onclick="changeSlide('booking')">Next Step</button>
                 </div>
             </section>
-            <section class="prompt_book">
-                <!-- <div class="close_btn" onclick="promptClose('booking')">
-                    <img src="./Assets/svg.svg" alt="close_btn">
-                </div> -->
+            <section class="prompt_book booking">
                 <div class="book_wrap">
                     <span class="skew_bg"></span>
                     <div class="left_half">
                     <div class="book_heading">
                         <h1>Start Booking Now</h1>
                     </div>
-                    <form onsubmit="changeSlide('book_ext', event)">
+                    <form onsubmit="changeSlide('book_ext', event, '.booking')">
                         <div class="step-1">
                             <div class="input">
-                                <input type="text" name="name" placeholder="Full Name" required />
+                                <input type="text" name="name" placeholder="Full Name" id="inp_fullname" required />
                             </div>
                             <div class="input">
-                                <input type="email" name="email" placeholder="Email Address" required />
+                                <input type="email" name="email" placeholder="Email Address" id="inp_email" required />
                             </div>
                             <div class="input">
-                                <input type="tel" name="mobile" placeholder="Mobile No." required />
+                                <input type="tel" name="mobile" placeholder="Mobile No." id="inp_mobile" required />
                             </div>
                             <div class="radio_wrap">
                                 <div class="radio_btn">
-                                    <input type="radio" name="group" />
+                                    <input type="radio" name="group" value="economic" />
                                     <label for="small_group">Economic</label>
                                 </div>
                                 <div class="radio_btn">
-                                    <input type="radio" name="group" />
+                                    <input type="radio" name="group" value="buisness" />
                                     <label for="small_group">Buisness</label>
                                 </div>
                             </div>
@@ -95,20 +92,23 @@
                             <div class="input d-flex">
                                 <div class="counter mr-4 w-50 adult">
                                     <span class="dec" onclick="counter('adult','-')">-</span>
-                                    <input type="text" class="w-100" name="adults" placeholder="Adults" readonly required />
+                                    <input type="text" class="w-100" name="adults" placeholder="Adults" id="inp_adults" readonly required />
                                     <span class="inc" onclick="counter('adult','+')">+</span>
                                 </div>
                                 <div class="counter w-50 kid">
                                     <span class="dec" onclick="counter('kid','-')">-</span>
-                                    <input type="text" class="w-100" name="kids" placeholder="Kids" readonly required />
+                                    <input type="text" class="w-100" name="kids" placeholder="Kids" id="inp_kids" readonly required />
                                     <span class="inc" onclick="counter('kid','+')">+</span>
                                 </div>
                             </div>
-                            <div class="input">
-                                <div class="counter mr-4 w-100 room">
+                            <div class="input d-flex">
+                                <div class="counter mr-4 w-50 room">
                                     <span class="dec" onclick="counter('room','-')">-</span>
-                                    <input type="text" class="w-100" name="rooms" placeholder="No. of Rooms" readonly required />
+                                    <input type="text" class="w-100" name="rooms" placeholder="Rooms" id="inp_rooms" readonly required />
                                     <span class="inc" onclick="counter('room','+')">+</span>
+                                </div>
+                                <div class="w-50">                                    
+                                    <input type="text" class="w-100" name="amount" placeholder="Amount" id="inp_amt" readonly required />
                                 </div>
                             </div>
                             <button>Complete</button>
@@ -406,6 +406,7 @@
         </div>
     </footer>
 
+    <script src="https://js.stripe.com/v3/"></script>
     <script src="./script.js"></script>
     <script src="./script2.js"></script>
 
