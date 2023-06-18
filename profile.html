@@ -90,7 +90,7 @@
               <a href="./index.html">Home</a>
               <a href="./packages.html">Services</a>
               <a href="./contact_us.html">Contact</a>
-              <a onclick="promptActive('login')">Login</a>
+              <!-- <a onclick="promptActive('login')">Login</a> -->
             </div>
         </nav>
         
@@ -102,6 +102,7 @@
                 <div class="profile_img">
                     <img src="./Assets/user_avatar.png" alt="profile_img" />
                 </div>
+                <button onclick="Logout()">Logout</button>
             </div>
             <div class="mid_details">
                 <h1>Jessica Jones</h1>
@@ -173,7 +174,9 @@
 
     <script src="./script.js"></script>
     <script src="./script2.js"></script>
-
+    <script>
+        setUserProfile();
+    </script>
 </body>
 
 </html>

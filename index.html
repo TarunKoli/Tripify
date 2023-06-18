@@ -26,19 +26,19 @@
                 <form>
                     <div class="step-1">
                         <div class="input">
-                            <input type="text" name="name" placeholder="Full Name" required />
+                            <input type="text" name="name" placeholder="Full Name" id="reg_name" required />
                         </div>
                         <div class="input">
-                            <input type="email" name="email" placeholder="Email Address" required />
+                            <input type="email" name="email" placeholder="Email Address" id="reg_email" required />
                         </div>
                         <div class="input">
-                            <input type="password" name="password" placeholder="Password" required />
+                            <input type="password" name="password" placeholder="Password" id="reg_pass" required />
                         </div>
                         <div class="input">
-                            <input type="password" name="confirm_pass" placeholder="Confirm Password" required />
+                            <input type="password" name="confirm_pass" placeholder="Confirm Password" id="reg_confirm" required />
                         </div>
                         <div class="login_btns">
-                          <button>Register</button>
+                          <button onclick="register(event)">Register</button>
                           <span onclick="changeSlide('book_ext', event)">Already have an account ?</span>
                         </div>                        
                     </div>        
@@ -51,13 +51,13 @@
                 <form action="#">
                     <div class="step-1">
                       <div class="input">
-                        <input type="email" name="email" placeholder="Email Address" required />
+                        <input type="email" name="email" placeholder="Email Address" id="log_email" required />
                       </div>
                       <div class="input">
-                        <input type="password" name="password" placeholder="Password" required />
+                        <input type="password" name="password" placeholder="Password" id="log_pass" required />
                       </div>
                       <div class="login_btns">
-                        <button>Login</button>
+                        <button onclick="login(event)">Login</button>
                         <span onclick="changeSlide('book_ext', event)">New User ?</span>
                       </div>
                     </div>        
@@ -87,7 +87,7 @@
         <a href="./index.html">Home</a>
         <a href="./packages.html">Services</a>
         <a href="./contact_us.html">Contact</a>
-        <a onclick="promptActive('login')">Login</a>
+        <!-- <a onclick="promptActive('login')">Login</a> -->
       </div>
     </nav>
     <section class="sec1">
@@ -415,6 +415,9 @@
 
   <script src="./script.js"></script>
   <script src="./script2.js"></script>
+  <script>
+    setNavLink();
+  </script>
   
 </body>
 

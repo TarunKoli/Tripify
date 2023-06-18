@@ -7,11 +7,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tripify || Contact Us</title>
     <link rel="stylesheet" href="./Styles/global.css">
+  <link rel="stylesheet" href="./Styles/prompt.css">
     <link rel="stylesheet" href="./Styles/contact_us.css">
     <script src="https://kit.fontawesome.com/e7a0c04ff2.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+
+    <div class="prompt_wrap" onclick="promptClose('booking')">
+        <div class="prompt" onclick="stopEventTravel(event)">
+            <section class="prompt_book login">
+                <div class="book_wrap">
+                    <span class="skew_bg"></span>
+                    <div class="left_half">
+                    <div class="book_heading">
+                        <h1>Join Tripify Today!</h1>
+                    </div>
+                    <form>
+                        <div class="step-1">
+                            <div class="input">
+                                <input type="text" name="name" placeholder="Full Name" id="reg_name" required />
+                            </div>
+                            <div class="input">
+                                <input type="email" name="email" placeholder="Email Address" id="reg_email" required />
+                            </div>
+                            <div class="input">
+                                <input type="password" name="password" placeholder="Password" id="reg_pass" required />
+                            </div>
+                            <div class="input">
+                                <input type="password" name="confirm_pass" placeholder="Confirm Password" id="reg_confirm" required />
+                            </div>
+                            <div class="login_btns">
+                              <button onclick="register(event)">Register</button>
+                              <span onclick="changeSlide('book_ext', event)">Already have an account ?</span>
+                            </div>                        
+                        </div>        
+                    </form>
+                    </div>
+                    <div class="left_half right_half">
+                    <div class="book_heading">
+                        <h1>Welcome Back!</h1>
+                    </div>
+                    <form action="#">
+                        <div class="step-1">
+                          <div class="input">
+                            <input type="email" name="email" placeholder="Email Address" id="log_email" required />
+                          </div>
+                          <div class="input">
+                            <input type="password" name="password" placeholder="Password" id="log_pass" required />
+                          </div>
+                          <div class="login_btns">
+                            <button onclick="login(event)">Login</button>
+                            <span onclick="changeSlide('book_ext', event)">New User ?</span>
+                          </div>
+                        </div>        
+                    </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 
     <main page="packages">
         <div class="layer"></div>
@@ -32,7 +87,6 @@
             <a href="./index.html">Home</a>
             <a href="./packages.html">Services</a>
             <a href="./contact_us.html">Contact</a>
-            <a href="#">Login</a>
           </div>
         </nav>
         <div class="contact_cover">
@@ -122,36 +176,11 @@
         </div>
     </footer>
 
+    <script src="./script.js"></script>
+    <script src="./script2.js"></script>
+
     <script>
-        const hamburger = document.querySelector('.hamburger');
-
-        hamburger.addEventListener('click', () => {
-
-            const ham_layer = document.querySelector('.ham_layer');
-            const links = document.querySelector('.links');
-
-            ham_layer.classList.toggle('active');
-            hamburger.classList.toggle('active');
-
-            if (links.classList.contains('active')) {
-                links.classList.remove('active');
-            } else {
-                setTimeout(() => {
-                    links.classList.add('active');
-                }, 300)
-            }
-        })
-
-        const cards = document.querySelectorAll('.card');
-
-        cards.forEach((card, i) => {
-            card.addEventListener("click", () => {
-                const a = document.createElement('a');
-                a.href = "./details_page.html";
-                a.click();
-            })
-        })
-
+        setNavLink();
     </script>
 </body>
 

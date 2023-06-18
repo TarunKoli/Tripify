@@ -58,6 +58,20 @@ main[page="profile"] .layer::before{
     justify-content: center;
     margin-bottom: 13%;
 }
+.top_details button{
+    margin-left: auto;
+    color: var(--text-white);
+    background: var(--secondary);
+    border: none;
+    height: 5rem;
+    width: 15rem;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
 .top_details .profile_img{
     position: absolute;
     height: 18rem;

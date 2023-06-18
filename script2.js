@@ -16,6 +16,158 @@ function toggleHam(){
   }
 }
 
+function redirect(link){
+    const a = document.createElement('a');
+    a.href=link;
+    a.click();
+}
+
+function register(e){
+    e.preventDefault();
+    const name = document.querySelector('#reg_name').value;
+    const email = document.querySelector('#reg_email').value;
+    const pass = document.querySelector('#reg_pass').value;
+    const confirm_pass = document.querySelector('#reg_confirm').value;
+
+    console.log(name,email,pass,confirm_pass);
+
+    if(!name) return;
+    if(!email) return;
+    if(!pass) return;
+    if(!confirm_pass) return;
+    if(pass!==confirm_pass) return;
+
+    const username = name.split(' ').join('_').toLowerCase();
+
+    const data={
+        username: username,
+        email: email,
+        password: pass
+    }
+
+    fetch('http://localhost:1337/api/auth/local/register',{
+        method: "POST",
+        mode:"cors",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+    })
+    .then((res)=>{
+        return res.json();
+    })
+    .then((parsed)=>{
+        document.querySelector('#reg_name').value="";
+        document.querySelector('#reg_email').value="";
+        document.querySelector('#reg_pass').value="";
+        document.querySelector('#reg_confirm').value="";
+        setUser(parsed)
+        redirect('/profile.html');
+    })
+
+}
+
+function login(e){
+    e.preventDefault();
+
+    const email = document.querySelector('#log_email').value;
+    const pass = document.querySelector('#log_pass').value;
+
+    if(!email) return;
+    if(!pass) return;
+
+    const data={
+        identifier: email,
+        password: pass
+    }
+
+    fetch('http://localhost:1337/api/auth/local',{
+        method: "POST",
+        mode:"cors",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+    })
+    .then((res)=>{
+        return res.json();
+    })
+    .then((parsed)=>{
+        document.querySelector('#log_email').value="";
+        document.querySelector('#log_pass').value="";
+        setUser(parsed);
+        redirect('/profile.html');
+    })
+
+}
+
+function setUser(data){
+    localStorage.setItem("jwt", data.jwt || "");
+    localStorage.setItem("user", JSON.stringify(data.user) || {});
+}
+
+async function isLoggedIn(cb){
+    if(!localStorage.getItem('jwt') || !localStorage.getItem('jwt'))
+        return false;
+
+    const auth_token = `Bearer ${localStorage.getItem('jwt')}`;
+
+    const res = await fetch('http://localhost:1337/api/users/me',{
+        method:"GET",
+        headers: {
+            Authorization: auth_token
+        },
+    })
+
+    const parsed = await res.json(); 
+    if(parsed && cb) cb(parsed);
+    if(parsed) return true;
+    
+    return false;
+}
+
+async function setNavLink(){
+    const links = document.querySelector('.links');
+    const new_link = document.createElement('a');
+
+    if(await isLoggedIn()){
+        new_link.textContent="Profile";
+        new_link.addEventListener('click',(e)=>{
+            redirect('/profile.html')
+        })
+    }else{
+        new_link.textContent="Login";
+        new_link.addEventListener('click',(e)=>{
+            promptActive('login')
+        })
+    }
+
+    links.appendChild(new_link);
+}
+
+function setProfileCard(data){
+    const userDetails = document.querySelector('.profile_card .mid_details');
+    const name = userDetails.querySelector('h1');
+
+    let refined_name = data.username?.split('_').join(' ');
+
+    name.textContent= refined_name;
+}
+
+async function setUserProfile(){
+    if(!await isLoggedIn(setProfileCard)){
+        Logout();
+        redirect('/index.html');
+        return;
+    } 
+    setNavLink();
+}
+
+function Logout(){
+    localStorage.clear();
+    redirect('/index.html')
+}
+
 hamburger.addEventListener('click', toggleHam);
 
 

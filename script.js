@@ -859,8 +859,7 @@ async function render_details() {
             pkg_cost=details.package_cost;
         }
     }
-
-
+    setNavLink();
 }
 
 
@@ -919,7 +918,7 @@ async function fetch_packages(){
             })
         }
     }
-    
+    setNavLink();
 }
 
 function redirect(path){
