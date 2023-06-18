@@ -1,0 +1,120 @@
+body{
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+main{
+    height: auto;
+}
+
+main[page="profile"]{
+    height: 75vh;
+    width: 100%;
+    position: relative;
+    padding-top: 3rem;
+}
+
+main[page="profile"] .layer{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../Assets/book_bg.jpg);
+    background-size: cover;
+    background-position: center;
+    clip-path: polygon(0 0, 100% 0%, 100% 79%, 0% 100%);
+}
+
+main[page="profile"] .layer::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    clip-path: polygon(0 0, 100% 0%, 100% 79%, 0% 100%);
+}
+
+.profile_detail{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    transform: translateY(-70%);
+}
+.profile_card{
+    width: 70%;
+    padding: 2.5rem 4rem;
+    background-color: #ffff;
+    box-shadow: 0 15px 35px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0,.07);
+    border-radius: 0.4rem;
+}
+
+.top_details{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 13%;
+}
+.top_details .profile_img{
+    position: absolute;
+    height: 18rem;
+    width: 18rem;
+    border-radius: 50%;
+    overflow: hidden;
+    transform: translateY(3%);
+    cursor: pointer;
+    box-shadow: 0 15px 35px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0,.07);
+    transition: 0.3s;
+}
+.top_details .profile_img:hover{
+    transform: translateY(-2%);
+}
+.profile_img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.mid_details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #32325d;
+    margin-bottom: 3%;
+}
+.mid_details h1{
+    font-size: 2.75rem;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+}
+.mid_details p{
+    font-weight: 300;
+    font-size: 1.4rem;
+}
+.bottom_details{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5%;
+    border-bottom: 0.0625rem solid #e9ecef!important;
+}
+.bottom_details p{
+    width: 70%;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: #525f7f;
+    text-align: center;
+    line-height: 1.7;
+}
+
+.order_bookings{
+    padding-top: 5%;
+}
+
+.order_bookings h1{
+    text-align: center;
+}
