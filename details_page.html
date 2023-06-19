@@ -83,11 +83,11 @@
                     <div class="book_heading">
                         <h1>Complete Booking</h1>
                     </div>
-                    <form action="#">
+                    <form onsubmit="initiateRazorpayPayment(event)">
                         <div class="step-1">
                             <div class="input d-flex">
-                                <input type="text" class="mr-4" name="check-in" placeholder="Check In" onfocus="(this.type='date')" />
-                                <input type="text" name="check-out" placeholder="Check Out" onfocus="(this.type='date')" />
+                                <input type="text" id="check-in" class="mr-4" name="check-in" placeholder="Check In" onfocus="(this.type='date')" onchange="setDayAmount()" />
+                                <input type="text" id="check-out" name="check-out" placeholder="Check Out" onfocus="(this.type='date')" onchange="setDayAmount()" />
                             </div>
                             <div class="input d-flex">
                                 <div class="counter mr-4 w-50 adult">
@@ -393,7 +393,7 @@
             <div class="f_right">
                 <h4>Subscribe Now</h4>
                 <input type="email" name="email" placeholder="Your email" />
-                <button>Subscribe Now</button>
+                <button id="checkout">Subscribe Now</button>
             </div>
         </div>
         <div class="down">
@@ -406,7 +406,7 @@
         </div>
     </footer>
 
-    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="./script.js"></script>
     <script src="./script2.js"></script>
 

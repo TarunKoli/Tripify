@@ -816,6 +816,9 @@ function set_package_cost(){
         pkg_cost.kid_cost*=1.5;
         pkg_cost.room_cost*=1.5;
         pkg_cost.amount*=1.2;
+        pkg_cost.pkg_type='buisness';
+    }else{
+        pkg_cost.pkg_type='economic';
     }
 
     const adults = document.querySelector('#inp_adults');
@@ -823,7 +826,6 @@ function set_package_cost(){
     const rooms = document.querySelector('#inp_rooms');
     const amount = document.querySelector('#inp_amt');
 
-    console.log(pkg_cost);
     adults.value=`Adults(${pkg_cost.adults || ''})`;
     adults.setAttribute('data-val',pkg_cost.adults)
     adults.setAttribute('data-field','Adults');
@@ -842,6 +844,78 @@ function set_package_cost(){
 
 }
 
+async function updateUserBooking(pay_res){
+    if(!localStorage.getItem('jwt') || !localStorage.getItem('user'))
+        return false;
+
+    const auth_token = `Bearer ${localStorage.getItem('jwt')}`;
+
+    const res = await fetch('http://localhost:1337/api/users/me?populate=*',{
+        method:"GET",
+        headers: {
+            Authorization: auth_token
+        },
+    })
+    const parsed = await res.json(); 
+
+    const existingBookings = parsed.bookings;
+
+    const newBooking= {
+        adults:pkg_cost.adults,
+        amount:pkg_cost.amount,
+        booking_type: pkg_cost.pkg_type,
+        check_in:"test",
+        check_out:"test",
+        duration:pkg_cost.days,
+        kids:pkg_cost.kids,
+        package_id:pkg_cost.pkg_id,
+        package_name:pkg_cost.pkg_title,
+        payment_id:pay_res.razorpay_payment_id,
+        rooms: pkg_cost.rooms,
+    }
+
+    const updatedBooking = [...existingBookings, newBooking];
+
+    parsed.bookings=updatedBooking;
+
+    const user_id = JSON.parse(localStorage.getItem('user'))?.id;
+
+    const updated_res = await fetch(`http://localhost:1337/api/users/${user_id}`, {
+        method: 'PUT',
+        headers: {
+            Authorization: auth_token,
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(parsed),
+    })
+
+    const parsed_updated = await updated_res.json();
+
+    console.log(parsed_updated);
+}
+
+function initiateRazorpayPayment(e) {
+    if(e) e.preventDefault();
+    var options = {
+        key: 'rzp_test_ApibS0LvxvZatU',
+        amount: pkg_cost.amount*100, // Custom amount in paisa (e.g., Rs. 299.99)
+        currency: 'INR',
+        name: 'Test Company',
+        description: 'Product Purchase',
+        handler: function(response) {
+        // Handle the payment response here
+        updateUserBooking(response);
+        },
+        prefill: {
+        name: 'John Doe',
+        email: 'john.doe@example.com',
+        },
+    };
+
+    var razorpayInstance = new Razorpay(options);
+    razorpayInstance.open();
+}
+
 async function render_details() {
     const url = new URLSearchParams(window.location.href.split("?")[1]);
 
@@ -857,6 +931,8 @@ async function render_details() {
             set_feature_img(details.featured_images);
             set_bottom_desc(details.desc2);        
             pkg_cost=details.package_cost;
+            pkg_cost.pkg_id=details.id;
+            pkg_cost.pkg_title=details.title;
         }
     }
     setNavLink();

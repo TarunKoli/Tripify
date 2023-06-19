@@ -37,7 +37,7 @@ function register(e){
     if(!confirm_pass) return;
     if(pass!==confirm_pass) return;
 
-    const username = name.split(' ').join('_').toLowerCase();
+    const username = name.split(' ').join('_');
 
     const data={
         username: username,
@@ -107,7 +107,7 @@ function setUser(data){
 }
 
 async function isLoggedIn(cb){
-    if(!localStorage.getItem('jwt') || !localStorage.getItem('jwt'))
+    if(!localStorage.getItem('jwt') || !localStorage.getItem('user'))
         return false;
 
     const auth_token = `Bearer ${localStorage.getItem('jwt')}`;
@@ -177,6 +177,36 @@ function stopEventTravel(e){
    e.stopPropagation()
 }
 
+function getDateDifference(startDate, endDate) {
+    const oneDay = 24 * 60 * 60 * 1000; // Number of milliseconds in a day
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+  
+    // Calculate the difference in days
+    const diffInDays = Math.round(Math.abs((start - end) / oneDay));
+  
+    return diffInDays;
+}  
+
+function setDayAmount(){
+    const amount = document.querySelector('#inp_amt');
+    if(!amount) return;
+
+    let pkg_amt = parseInt(amount.getAttribute('data-val') || 0)
+
+    const checkIn = document.getElementById('check-in');
+    const checkOut = document.getElementById('check-out');
+
+    if(!pkg_amt || !checkIn.value || !checkOut.value) return;
+
+    const days = getDateDifference(checkIn.value, checkOut.value);
+
+    amount.value=`Rs. ${pkg_amt*days || ''}`;
+    amount.setAttribute('data-val',pkg_amt*days);
+    pkg_cost.amount=pkg_amt*days;
+    pkg_cost.days=days;
+}
+
 function counter(target, op){
    if(!target) return;
    const parent = document.querySelector(`.${target}`);
@@ -196,13 +226,13 @@ function counter(target, op){
 
    if(field==='Adults'){
         lower_bound = pkg_cost.adults;
-        cost = pkg_cost.adult_cost;
+        cost = pkg_cost.adult_cost*(pkg_cost.days || 1);
     }else if(field==='Kids') {
        lower_bound = pkg_cost.kids;
-       cost = pkg_cost.kid_cost;
+       cost = pkg_cost.kid_cost*(pkg_cost.days || 1);
     }else if(field==='Rooms'){
        lower_bound = pkg_cost.rooms;
-        cost = pkg_cost.room_cost;
+        cost = pkg_cost.room_cost*(pkg_cost.days || 1);
     }
 
    switch(op){
@@ -214,13 +244,19 @@ function counter(target, op){
            inp.setAttribute('data-val',val+1);
            amount.value=`Rs. ${pkg_amt+cost || ''}`;
            amount.setAttribute('data-val',pkg_amt+cost);
+
+           if(field==='Adults') pkg_cost.adults+=1;
+           else if(field==='Kids') pkg_cost.kids+=1;
+           else if(field==='Rooms') pkg_cost.rooms+=1;
+            
+           pkg_cost.amount=pkg_amt+cost;
            break;
        }
        case '-':{
           
            if(val-1<lower_bound){
                inp.value=`${field}(${lower_bound})`;
-               inp.setAttribute('data-val',0);
+               inp.setAttribute('data-val',lower_bound);
                return;
            }
 
@@ -228,6 +264,12 @@ function counter(target, op){
            inp.setAttribute('data-val',val-1);
            amount.value=`Rs. ${pkg_amt-cost || ''}`;
            amount.setAttribute('data-val',pkg_amt-cost);
+
+           if(field==='Adults') pkg_cost.adults-=1;
+           else if(field==='Kids') pkg_cost.kids-=1;
+           else if(field==='Rooms') pkg_cost.rooms-=1;
+
+           pkg_cost.amount=pkg_amt-cost;
            break;
        }
        default:{

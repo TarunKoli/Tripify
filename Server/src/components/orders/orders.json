@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_orders_orders",
+  "info": {
+    "displayName": "orders",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "payment_id": {
+      "type": "text"
+    },
+    "check_in": {
+      "type": "text"
+    },
+    "check_out": {
+      "type": "text"
+    },
+    "amount": {
+      "type": "float"
+    },
+    "adults": {
+      "type": "integer"
+    },
+    "kids": {
+      "type": "integer"
+    },
+    "rooms": {
+      "type": "integer"
+    },
+    "booking_type": {
+      "type": "text"
+    },
+    "package_name": {
+      "type": "text"
+    },
+    "package_id": {
+      "type": "integer"
+    },
+    "duration": {
+      "type": "integer"
+    }
+  }
+}
