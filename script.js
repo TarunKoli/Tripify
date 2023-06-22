@@ -892,6 +892,7 @@ async function updateUserBooking(pay_res){
     const parsed_updated = await updated_res.json();
 
     console.log(parsed_updated);
+    redirect('/profile.html');
 }
 
 function initiateRazorpayPayment(e) {
@@ -900,15 +901,15 @@ function initiateRazorpayPayment(e) {
         key: 'rzp_test_ApibS0LvxvZatU',
         amount: pkg_cost.amount*100, // Custom amount in paisa (e.g., Rs. 299.99)
         currency: 'INR',
-        name: 'Test Company',
+        name: 'Tripify',
         description: 'Product Purchase',
         handler: function(response) {
         // Handle the payment response here
         updateUserBooking(response);
         },
         prefill: {
-        name: 'John Doe',
-        email: 'john.doe@example.com',
+        name: 'Admin Tripify',
+        email: 'admin@tripify.com',
         },
     };
 

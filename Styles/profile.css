@@ -42,7 +42,7 @@ main[page="profile"] .layer::before{
     display: flex;
     justify-content: center;
     width: 100%;
-    transform: translateY(-70%);
+    transform: translateY(-10%);
 }
 .profile_card{
     width: 70%;
@@ -131,4 +131,42 @@ main[page="profile"] .layer::before{
 
 .order_bookings h1{
     text-align: center;
+}
+
+.order_bookings .order_card{
+    border: 1px solid rgba(0,0,0,.1);
+    text-align: start;
+    padding: 2.5rem 3rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0,0,0,.08);
+    margin: 3rem 0;
+}
+.order_card .pkg_title h1{
+    text-align: start;
+    font-size: 2.8rem;
+    font-weight: 400;
+    border-bottom: 1px solid #525f7f;
+    padding-bottom: 1rem;
+    margin-bottom: 3rem;
+}
+.order_card .pkg_fields{
+    display: flex;
+    flex-wrap: wrap;
+}
+.pkg_fields .field_display{
+    padding: 1rem 2rem;
+}
+.field_display label,
+.field_display input{
+    width: 100%;
+    padding: 0.5rem 1.5rem;
+}
+.field_display label{
+    font-size: 1.4rem;
+}
+.field_display input{
+    height: 4rem;
+    border-radius: 0.3rem;
+    border: 1px solid #525f7f;
+    margin-top: 0.5rem;
 }

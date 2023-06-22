@@ -112,7 +112,7 @@ async function isLoggedIn(cb){
 
     const auth_token = `Bearer ${localStorage.getItem('jwt')}`;
 
-    const res = await fetch('http://localhost:1337/api/users/me',{
+    const res = await fetch('http://localhost:1337/api/users/me?populate=*',{
         method:"GET",
         headers: {
             Authorization: auth_token
@@ -152,6 +152,44 @@ function setProfileCard(data){
     let refined_name = data.username?.split('_').join(' ');
 
     name.textContent= refined_name;
+
+    console.log(data.bookings);
+    const orderBookings = document.querySelector('.order_bookings');
+
+    data.bookings.forEach((inf,i)=>{
+        const orderCard = document.createElement('div');
+        orderCard.classList.add('order_card');
+        
+        const pkgTitle = document.createElement('div');
+        const title = document.createElement('h1');
+        pkgTitle.classList.add('pkg_title');
+
+        title.textContent=inf.package_name;
+        pkgTitle.appendChild(title);
+
+
+        const pkgFields = document.createElement('div');
+        pkgFields.classList.add('pkg_fields');
+
+        Object.entries(inf).forEach(([key,val])=>{
+            const fieldDisplay = document.createElement('div');
+            fieldDisplay.classList.add('field_display');
+
+            const label = document.createElement('label');
+            label.textContent=key;
+            const input = document.createElement('input');
+            input.value=val;
+            input.readOnly=true;
+
+            fieldDisplay.append(label,input);
+            pkgFields.appendChild(fieldDisplay)
+        })
+            
+        orderCard.appendChild(pkgTitle);
+        orderCard.appendChild(pkgFields);
+        orderBookings.appendChild(orderCard);
+    })
+
 }
 
 async function setUserProfile(){
@@ -284,6 +322,11 @@ function promptActive(type){
    prompt.classList.add('active');
 
    if(type==='booking'){
+        if(!localStorage.getItem('jwt') || !localStorage.getItem('user')) {
+            const login_form = document.querySelector('.login');
+            login_form.classList.add('active');
+            return;
+        }
        const guideline = document.querySelector('.prompt_instruct');
        const book_form = document.querySelector('.prompt_book');
        guideline.classList.add('active');
