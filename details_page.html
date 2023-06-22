@@ -86,8 +86,8 @@
                     <form onsubmit="initiateRazorpayPayment(event)">
                         <div class="step-1">
                             <div class="input d-flex">
-                                <input type="text" id="check-in" class="mr-4" name="check-in" placeholder="Check In" onfocus="(this.type='date')" onchange="setDayAmount()" />
-                                <input type="text" id="check-out" name="check-out" placeholder="Check Out" onfocus="(this.type='date')" onchange="setDayAmount()" />
+                                <input type="text" id="check-in" class="mr-4" name="check-in" placeholder="Check In" onfocus="(this.type='date')" onchange="setDayAmount()" required/>
+                                <input type="text" id="check-out" name="check-out" placeholder="Check Out" onfocus="(this.type='date')" onchange="setDayAmount()" required/>
                             </div>
                             <div class="input d-flex">
                                 <div class="counter mr-4 w-50 adult">

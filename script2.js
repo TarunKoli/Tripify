@@ -237,6 +237,8 @@ function setDayAmount(){
 
     if(!pkg_amt || !checkIn.value || !checkOut.value) return;
 
+    pkg_cost.checkIn=checkIn.value;
+    pkg_cost.checkOut=checkOut.value;
     const days = getDateDifference(checkIn.value, checkOut.value);
 
     amount.value=`Rs. ${pkg_amt*days || ''}`;
