@@ -265,13 +265,13 @@ function counter(target, op){
    let lower_bound=0;
 
    if(field==='Adults'){
-        lower_bound = pkg_cost.adults;
+        lower_bound = pkg_cost.min_adults;
         cost = pkg_cost.adult_cost*(pkg_cost.days || 1);
     }else if(field==='Kids') {
-       lower_bound = pkg_cost.kids;
+       lower_bound = pkg_cost.min_kids;
        cost = pkg_cost.kid_cost*(pkg_cost.days || 1);
     }else if(field==='Rooms'){
-       lower_bound = pkg_cost.rooms;
+       lower_bound = pkg_cost.min_rooms;
         cost = pkg_cost.room_cost*(pkg_cost.days || 1);
     }
 
@@ -293,7 +293,6 @@ function counter(target, op){
            break;
        }
        case '-':{
-          
            if(val-1<lower_bound){
                inp.value=`${field}(${lower_bound})`;
                inp.setAttribute('data-val',lower_bound);

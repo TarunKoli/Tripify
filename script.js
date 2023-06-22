@@ -232,8 +232,12 @@ async function render_details() {
             set_Intro(details.title,details.subtitle,details.banner_img, details.banner_title);
             set_Description(details.desc1);
             set_feature_img(details.featured_images);
-            set_bottom_desc(details.desc2);        
+            set_bottom_desc(details.desc2);
+                    
             pkg_cost=details.package_cost;
+            pkg_cost.min_adults=details.package_cost.adults || 1;
+            pkg_cost.min_kids=details.package_cost.kids || 1;
+            pkg_cost.min_rooms=details.package_cost.rooms || 1;
             pkg_cost.pkg_id=details.id;
             pkg_cost.pkg_title=details.title;
         }
