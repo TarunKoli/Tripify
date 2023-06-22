@@ -193,12 +193,25 @@ async function updateUserBooking(pay_res){
 
     const parsed_updated = await updated_res.json();
 
-    console.log(parsed_updated);
     redirect('/profile.html');
 }
 
 function initiateRazorpayPayment(e) {
     if(e) e.preventDefault();
+
+    const checkIn = document.getElementById('check-in');
+    const checkOut = document.getElementById('check-out');
+
+    if(!checkIn.value){
+        toastActive('info','Please enter a check-in date')
+        return;
+    }
+
+    if(!checkOut.value){
+        toastActive('info','Please enter a check-out date')
+        return;
+    }
+
     var options = {
         key: 'rzp_test_ApibS0LvxvZatU',
         amount: pkg_cost.amount*100, // Custom amount in paisa (e.g., Rs. 299.99)
@@ -233,7 +246,7 @@ async function render_details() {
             set_Description(details.desc1);
             set_feature_img(details.featured_images);
             set_bottom_desc(details.desc2);
-                    
+
             pkg_cost=details.package_cost;
             pkg_cost.min_adults=details.package_cost.adults || 1;
             pkg_cost.min_kids=details.package_cost.kids || 1;

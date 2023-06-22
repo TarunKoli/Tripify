@@ -31,11 +31,26 @@ function register(e){
 
     console.log(name,email,pass,confirm_pass);
 
-    if(!name) return;
-    if(!email) return;
-    if(!pass) return;
-    if(!confirm_pass) return;
-    if(pass!==confirm_pass) return;
+    if(!name){
+        toastActive('info','Please enter name')
+        return;
+    }
+    if(!email) {
+        toastActive('info','Please enter email')
+        return;
+    }
+    if(!pass){
+        toastActive('info','Please enter password')
+        return;
+    }
+    if(!confirm_pass){
+        toastActive('info','Please confirm password')
+        return;
+    }
+    if(pass!==confirm_pass) {
+        toastActive('info','Password mismatch')
+        return;
+    }
 
     const username = name.split(' ').join('_');
 
@@ -57,12 +72,22 @@ function register(e){
         return res.json();
     })
     .then((parsed)=>{
-        document.querySelector('#reg_name').value="";
-        document.querySelector('#reg_email').value="";
-        document.querySelector('#reg_pass').value="";
-        document.querySelector('#reg_confirm').value="";
-        setUser(parsed)
-        redirect('/profile.html');
+        if(parsed.jwt){
+            toastActive('success','Registration Successful')
+            document.querySelector('#reg_name').value="";
+            document.querySelector('#reg_email').value="";
+            document.querySelector('#reg_pass').value="";
+            document.querySelector('#reg_confirm').value="";
+            setUser(parsed)
+
+            setTimeout(()=>{
+                redirect('/profile.html');    
+            },1000)
+        }else if(parsed.error) toastActive('fail',parsed.error.message)
+        else throw new Error('Internal Server Error!')
+
+    }).catch((err)=>{
+        toastActive('fail','Internal Server Error!');       
     })
 
 }
@@ -73,8 +98,14 @@ function login(e){
     const email = document.querySelector('#log_email').value;
     const pass = document.querySelector('#log_pass').value;
 
-    if(!email) return;
-    if(!pass) return;
+    if(!email) {
+        toastActive('info','Please enter email')
+        return;
+    }
+    if(!pass) {
+        toastActive('info','Please enter password')
+        return;
+    }
 
     const data={
         identifier: email,
@@ -93,10 +124,20 @@ function login(e){
         return res.json();
     })
     .then((parsed)=>{
-        document.querySelector('#log_email').value="";
-        document.querySelector('#log_pass').value="";
-        setUser(parsed);
-        redirect('/profile.html');
+        if(parsed.jwt){
+            toastActive('success','Login Successful')
+            document.querySelector('#log_email').value="";
+            document.querySelector('#log_pass').value="";
+            setUser(parsed);
+
+            setTimeout(()=>{
+                redirect('/profile.html');
+            },1000)
+        }else if(parsed.error) toastActive('fail',parsed.error.message)
+        else throw new Error('Internal Server Error!')
+    })
+    .catch((err)=>{
+        toastActive('fail','Internal Server Error!');       
     })
 
 }
@@ -123,6 +164,7 @@ async function isLoggedIn(cb){
     if(parsed && cb) cb(parsed);
     if(parsed) return true;
     
+    toastActive('fail','Try Again later');
     return false;
 }
 
@@ -203,7 +245,11 @@ async function setUserProfile(){
 
 function Logout(){
     localStorage.clear();
-    redirect('/index.html')
+    toastActive('success','Logout Successful')
+
+    setTimeout(()=>{
+        redirect('/index.html')
+    },1000)
 }
 
 hamburger.addEventListener('click', toggleHam);
@@ -278,7 +324,10 @@ function counter(target, op){
    switch(op){
        case '+':{
          
-           if(val+1>10) return;
+           if(val+1>10) {
+            toastActive('info','Maximum Limit Reached')
+            return;
+           }
 
            inp.value=`${field}(${val+1})`;
            inp.setAttribute('data-val',val+1);
@@ -296,6 +345,7 @@ function counter(target, op){
            if(val-1<lower_bound){
                inp.value=`${field}(${lower_bound})`;
                inp.setAttribute('data-val',lower_bound);
+               toastActive('info','Minimum Limit Reached')
                return;
            }
 
@@ -399,4 +449,32 @@ function promptClose(type){
        const login_form = document.querySelector('.login');
        if(login_form) login_form.classList.remove('active');
    }
+}
+
+function toastActive(type,msg){
+    if(!msg) return;
+
+    const toast = document.querySelector('.toast');
+    const text = toast.querySelector('p');
+    const timer = toast.querySelector('span');
+
+    text.textContent=msg;
+
+    toast.classList.add('active');
+    timer.classList.add('timer');
+
+    if(type==='success') toast.classList.add('success')
+    else if(type==='info') toast.classList.add('info')
+    else toast.classList.add('fail')
+
+    setTimeout(()=>{
+    
+        toast.classList.remove('active');
+        timer.classList.remove('timer');
+        
+        if(type==='success') toast.classList.remove('success')
+        else if(type==='info') toast.classList.remove('info')
+        else toast.classList.remove('fail')
+    
+    },5000)
 }

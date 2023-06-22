@@ -31,3 +31,55 @@ html {
       font-size: 40%;
     }
   }
+
+.toast{
+  position: fixed;
+  bottom: 3%;
+  right: -25%;
+  height: 6.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 2rem;
+  width: 20%;
+  z-index: 1000;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  font-size: 1.4rem;
+  color: white;
+  background: red;
+  transition: 0.3s ease-in-out;
+}
+
+.toast .timer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255,255,255,.5);
+  height: 0.5rem;
+  animation: timer 5s forwards;
+}
+
+@keyframes timer {
+  from{
+    width: 100%;
+  }
+  to{
+    width: 0%;
+  }
+}
+
+.toast.active{
+  right: 1%;
+  transition: 0.3s ease-in-out;
+}
+.toast.fail{
+  background: red;
+}
+.toast.success{
+  background: green;
+}
+.toast.info{
+  background: rgb(22, 109, 239);
+}
